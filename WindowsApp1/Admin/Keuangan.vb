@@ -238,4 +238,6 @@ Public Class Keuangan
     End Sub
     Private Sub LabelTotalPengeluaran_Click(sender As Object, e As EventArgs) Handles LabelTotalPengeluaran.Click
     End Sub
+
+
 End Class

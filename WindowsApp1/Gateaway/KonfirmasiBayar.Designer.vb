@@ -33,6 +33,7 @@ Partial Class KonfirmasiBayar
         Me.LblMetodeBayar = New System.Windows.Forms.Label()
         Me.BtnDownloadStruk = New System.Windows.Forms.Button()
         Me.BtnTutup = New System.Windows.Forms.Button()
+        Me.MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
         Me.SuspendLayout()
         '
         'BtnKembali
@@ -139,6 +140,13 @@ Partial Class KonfirmasiBayar
         Me.BtnTutup.Text = "Tutup"
         Me.BtnTutup.UseVisualStyleBackColor = True
         '
+        'MySqlCommand1
+        '
+        Me.MySqlCommand1.CacheAge = 0
+        Me.MySqlCommand1.Connection = Nothing
+        Me.MySqlCommand1.EnableCaching = False
+        Me.MySqlCommand1.Transaction = Nothing
+        '
         'KonfirmasiBayar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -173,4 +181,5 @@ Partial Class KonfirmasiBayar
     Friend WithEvents LblMetodeBayar As Label
     Friend WithEvents BtnDownloadStruk As Button
     Friend WithEvents BtnTutup As Button
+    Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
 End Class

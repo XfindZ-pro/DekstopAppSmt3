@@ -23,9 +23,6 @@ Partial Class Keuangan
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DataGridKeuangan = New System.Windows.Forms.DataGridView()
-        Me.BtnKembali = New System.Windows.Forms.Button()
-        Me.NumericHalaman = New System.Windows.Forms.NumericUpDown()
-        Me.LabelHalaman = New System.Windows.Forms.Label()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Tanggal = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Jenis = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -34,12 +31,16 @@ Partial Class Keuangan
         Me.MetodeBayar = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Keterangan = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Staff = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BtnKembali = New System.Windows.Forms.Button()
+        Me.NumericHalaman = New System.Windows.Forms.NumericUpDown()
+        Me.LabelHalaman = New System.Windows.Forms.Label()
         Me.LabelSaldoBank = New System.Windows.Forms.Label()
         Me.LabelSaldoCash = New System.Windows.Forms.Label()
         Me.LabelTotalSaldoEmoney = New System.Windows.Forms.Label()
         Me.LabelTotalPemasukkan = New System.Windows.Forms.Label()
         Me.LabelTotalPengeluaran = New System.Windows.Forms.Label()
         Me.BtnSinkron = New System.Windows.Forms.Button()
+        Me.BtnLaporan = New System.Windows.Forms.Button()
         CType(Me.DataGridKeuangan, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericHalaman, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -54,33 +55,6 @@ Partial Class Keuangan
         Me.DataGridKeuangan.RowTemplate.Height = 24
         Me.DataGridKeuangan.Size = New System.Drawing.Size(1419, 290)
         Me.DataGridKeuangan.TabIndex = 0
-        '
-        'BtnKembali
-        '
-        Me.BtnKembali.Location = New System.Drawing.Point(32, 13)
-        Me.BtnKembali.Name = "BtnKembali"
-        Me.BtnKembali.Size = New System.Drawing.Size(75, 23)
-        Me.BtnKembali.TabIndex = 1
-        Me.BtnKembali.Text = "Kembali"
-        Me.BtnKembali.UseVisualStyleBackColor = True
-        '
-        'NumericHalaman
-        '
-        Me.NumericHalaman.Location = New System.Drawing.Point(1287, 534)
-        Me.NumericHalaman.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
-        Me.NumericHalaman.Name = "NumericHalaman"
-        Me.NumericHalaman.Size = New System.Drawing.Size(120, 22)
-        Me.NumericHalaman.TabIndex = 2
-        '
-        'LabelHalaman
-        '
-        Me.LabelHalaman.AutoSize = True
-        Me.LabelHalaman.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelHalaman.Location = New System.Drawing.Point(1105, 534)
-        Me.LabelHalaman.Name = "LabelHalaman"
-        Me.LabelHalaman.Size = New System.Drawing.Size(116, 22)
-        Me.LabelHalaman.TabIndex = 3
-        Me.LabelHalaman.Text = "Halaman: 0/0"
         '
         'ID
         '
@@ -138,6 +112,33 @@ Partial Class Keuangan
         Me.Staff.Name = "Staff"
         Me.Staff.Width = 125
         '
+        'BtnKembali
+        '
+        Me.BtnKembali.Location = New System.Drawing.Point(32, 13)
+        Me.BtnKembali.Name = "BtnKembali"
+        Me.BtnKembali.Size = New System.Drawing.Size(75, 23)
+        Me.BtnKembali.TabIndex = 1
+        Me.BtnKembali.Text = "Kembali"
+        Me.BtnKembali.UseVisualStyleBackColor = True
+        '
+        'NumericHalaman
+        '
+        Me.NumericHalaman.Location = New System.Drawing.Point(1287, 534)
+        Me.NumericHalaman.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericHalaman.Name = "NumericHalaman"
+        Me.NumericHalaman.Size = New System.Drawing.Size(120, 22)
+        Me.NumericHalaman.TabIndex = 2
+        '
+        'LabelHalaman
+        '
+        Me.LabelHalaman.AutoSize = True
+        Me.LabelHalaman.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHalaman.Location = New System.Drawing.Point(1105, 534)
+        Me.LabelHalaman.Name = "LabelHalaman"
+        Me.LabelHalaman.Size = New System.Drawing.Size(116, 22)
+        Me.LabelHalaman.TabIndex = 3
+        Me.LabelHalaman.Text = "Halaman: 0/0"
+        '
         'LabelSaldoBank
         '
         Me.LabelSaldoBank.AutoSize = True
@@ -192,11 +193,21 @@ Partial Class Keuangan
         Me.BtnSinkron.Text = "SInkronasi"
         Me.BtnSinkron.UseVisualStyleBackColor = True
         '
+        'BtnLaporan
+        '
+        Me.BtnLaporan.Location = New System.Drawing.Point(1049, 54)
+        Me.BtnLaporan.Name = "BtnLaporan"
+        Me.BtnLaporan.Size = New System.Drawing.Size(152, 23)
+        Me.BtnLaporan.TabIndex = 10
+        Me.BtnLaporan.Text = "Download Laporan"
+        Me.BtnLaporan.UseVisualStyleBackColor = True
+        '
         'Keuangan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1475, 576)
+        Me.Controls.Add(Me.BtnLaporan)
         Me.Controls.Add(Me.BtnSinkron)
         Me.Controls.Add(Me.LabelTotalPengeluaran)
         Me.Controls.Add(Me.LabelTotalPemasukkan)
@@ -234,4 +245,5 @@ Partial Class Keuangan
     Friend WithEvents LabelTotalPemasukkan As Label
     Friend WithEvents LabelTotalPengeluaran As Label
     Friend WithEvents BtnSinkron As Button
+    Friend WithEvents BtnLaporan As Button
 End Class
