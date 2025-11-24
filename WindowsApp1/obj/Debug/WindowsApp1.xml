@@ -1,0 +1,172 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WindowsApp1
+</name>
+</assembly>
+<members>
+<member name="T:WindowsApp1.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:WindowsApp1.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:WindowsApp1.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:WindowsApp1.My.Resources.Resources.Desain_tanpa_judul">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:WindowsApp1.My.Resources.Resources.DFD_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:WindowsApp1.My.Resources.Resources.Qris_XfindZ">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:WindowsApp1.Keuangan.SiapkanKolomGrid">
+ <summary>
+ Mengatur properti dan kolom untuk DataGridKeuangan
+ </summary>
+</member>
+<member name="M:WindowsApp1.Keuangan.LoadJurnalData(System.Int32)">
+ <summary>
+ Fungsi utama untuk memuat data dari jurnal_keuangan dengan pagination
+ </summary>
+ <param name="pageNumber">Nomor halaman yang ingin ditampilkan</param>
+</member>
+<member name="M:WindowsApp1.Keuangan.LoadEkonomiData">
+ <summary>
+ Memuat data dari tabel 'ekonomi' dan menampilkannya di Label
+ </summary>
+</member>
+<member name="M:WindowsApp1.Keuangan.NumericHalaman_ValueChanged(System.Object,System.EventArgs)">
+ <summary>
+ Event ini dipicu ketika nilai NumericHalaman diubah (diklik)
+ </summary>
+</member>
+<member name="M:WindowsApp1.Keuangan.BtnSinkron_Click(System.Object,System.EventArgs)">
+ <summary>
+ **[PERBAIKAN]**
+ Tombol untuk menghitung ulang total emoney dari SEMUA akun,
+ mengupdatenya ke tabel ekonomi, dan me-refresh semua label.
+ </summary>
+</member>
+<member name="M:WindowsApp1.ManageBarang.BtnBaru_Click(System.Object,System.EventArgs)">
+ <summary>
+ **[PERUBAHAN]** Tombol "Baru" sekarang memanggil ResetForm
+ dan langsung meng-generate ID Barang baru.
+ </summary>
+</member>
+<member name="M:WindowsApp1.ManageBarang.GenerateNextIdBarang">
+ <summary>
+ Menghasilkan IdBarang berikutnya, mengisi celah (gap) jika ada.
+ Format: BRG0001
+ </summary>
+ <returns>String ID Barang baru, atau String.Empty jika gagal.</returns>
+</member>
+<member name="M:WindowsApp1.ManageKategori.GenerateNextIdKategori">
+ <summary>
+ Menghasilkan IdKategori berikutnya, mengisi celah (gap) jika ada.
+ Format: KTG0001
+ </summary>
+ <returns>String ID Kategori baru, atau String.Empty jika gagal.</returns>
+</member>
+<member name="M:WindowsApp1.ManageKategori.BtnBaru_Click(System.Object,System.EventArgs)">
+ <summary>
+ **[LOGIKA DIISI]**
+ Tombol "Baru" sekarang mereset form dan meng-generate ID baru
+ </summary>
+</member>
+<member name="M:WindowsApp1.ManageShelf.GenerateNextIdShelf">
+ <summary>
+ Menghasilkan IdShelf berikutnya, mengisi celah (gap) jika ada.
+ Format: RAK0001
+ </summary>
+ <returns>String ID Rak baru, atau String.Empty jika gagal.</returns>
+</member>
+<member name="M:WindowsApp1.ManageShelf.BtnBaru_Click(System.Object,System.EventArgs)">
+ <summary>
+ **[LOGIKA DIISI]**
+ Tombol "Baru" sekarang mereset form dan meng-generate ID baru
+ </summary>
+</member>
+<member name="M:WindowsApp1.KonfirmasiBayar.#ctor(System.Decimal,System.Decimal,System.Decimal,System.String,System.String,System.String)">
+ <summary>
+ Constructor (Sub New) untuk MENERIMA data dari Form Kasir.
+ </summary>
+</member>
+<member name="M:WindowsApp1.KonfirmasiBayar.BtnKonfirmasi_Click(System.Object,System.EventArgs)">
+ <summary>
+ **[PERUBAHAN LOGIKA]**
+ GATEWAY utama. Menjalankan SEMUA query SQL, termasuk validasi saldo cash untuk kembalian.
+ </summary>
+</member>
+<member name="M:WindowsApp1.KonfirmasiBayar.BtnDownloadStruk_Click(System.Object,System.EventArgs)">
+ <summary>
+ Tombol ini akan muncul setelah transaksi sukses. Memanggil fungsi GenerateStrukPDF.
+ </summary>
+</member>
+<member name="M:WindowsApp1.KonfirmasiBayar.GenerateStrukPDF(System.String,System.String)">
+ <summary>
+ Fungsi inti untuk membuat file PDF struk menggunakan iTextSharp.
+ </summary>
+</member>
+<member name="M:WindowsApp1.KonfirmasiBayar.BtnTutup_Click(System.Object,System.EventArgs)">
+ <summary>
+ Tombol ini akan muncul setelah transaksi sukses. Menutup form.
+ </summary>
+</member>
+<member name="M:WindowsApp1.Register.GenerateUniqueAkunID(MySql.Data.MySqlClient.MySqlConnection)">
+ <summary>
+ **[PERBAIKAN]** Fungsi ini harus memeriksa keunikan di database
+ untuk menghindari kegagalan 'INSERT' jika ID hasil acak sudah ada.
+ </summary>
+</member>
+<member name="M:WindowsApp1.Register.IsUsernameExists(System.String,MySql.Data.MySqlClient.MySqlConnection)">
+ <summary>
+ **[PERBAIKAN]** Fungsi ini sekarang menerima koneksi yang sudah terbuka.
+ </summary>
+</member>
+<member name="M:WindowsApp1.Register.IsEmailExists(System.String,MySql.Data.MySqlClient.MySqlConnection)">
+ <summary>
+ **[PERBAIKAN]** Fungsi ini sekarang menerima koneksi yang sudah terbuka.
+ </summary>
+</member>
+<member name="M:WindowsApp1.Register.ValidateInput(System.String,System.String,System.String,MySql.Data.MySqlClient.MySqlConnection)">
+ <summary>
+ **[PERBAIKAN]** Fungsi ini sekarang menerima koneksi untuk memeriksa duplikat.
+ </summary>
+</member>
+<member name="M:WindowsApp1.Kasir.BtnHapusKeranjang_Click(System.Object,System.EventArgs)">
+ <summary>
+ **[LOGIKA DIISI]**
+ Menghapus item yang dipilih dari keranjang.
+ </summary>
+</member>
+<member name="M:WindowsApp1.Kasir.GetSaldoPelanggan(System.String)">
+ <summary>
+ **[PERBAIKAN]** Ganti 'money' menjadi 'emoney'
+ </summary>
+</member>
+<member name="M:WindowsApp1.HistoriBelanja.GenerateStrukPDF(System.String,System.String)">
+ <summary>
+ Fungsi untuk membuat file PDF struk.
+ **[PEMBENARAN]** Cara deklarasi font telah diubah.
+ </summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,349 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|c:\\users\\findo\\source\\repos\\windowsapp1\\windowsapp1\\admin\\akun.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\akun.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\admin\\keuangan.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\keuangan.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|c:\\users\\findo\\source\\repos\\windowsapp1\\windowsapp1\\admin\\keuangan.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\keuangan.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\gateaway\\konfirmasibayar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\gateaway\\konfirmasibayar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\admin\\keuangan.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\keuangan.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\admin\\managekategori.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\managekategori.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\gateaway\\konfirmasibayar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\gateaway\\konfirmasibayar.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\user\\historibelanja.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\user\\historibelanja.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\user\\historibelanja.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\user\\historibelanja.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\staff\\kasir.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\staff\\kasir.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\staff\\kasir.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\staff\\kasir.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\admin\\managebarang.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\managebarang.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\admin\\manageshelf.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\manageshelf.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\admin\\manageshelf.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\manageshelf.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\admin\\managekategori.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\admin\\managekategori.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\staff\\managestock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\staff\\managestock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\staff\\isisaldo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\staff\\isisaldo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\page\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\page\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\staff\\isisaldo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\staff\\isisaldo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\page\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\page\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|C:\\Users\\findo\\source\\repos\\WindowsApp1\\windowsapp1\\staff\\managestock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{E3032CD1-2CDE-41CB-81DC-66FBB0BBAC78}|WindowsApp1\\WindowsApp1.vbproj|solutionrelative:windowsapp1\\staff\\managestock.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Akun.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\Akun.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\Akun.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\Akun.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Admin\\Akun.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-24T01:02:55.193Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Keuangan.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\Keuangan.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\Keuangan.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\Keuangan.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Admin\\Keuangan.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T14:58:12.551Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Keuangan.resx",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\Keuangan.resx",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\Keuangan.resx",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\Keuangan.resx",
+              "RelativeToolTip": "WindowsApp1\\Admin\\Keuangan.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-11-17T01:36:32.306Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "KonfirmasiBayar.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Gateaway\\KonfirmasiBayar.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Gateaway\\KonfirmasiBayar.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Gateaway\\KonfirmasiBayar.vb",
+              "RelativeToolTip": "WindowsApp1\\Gateaway\\KonfirmasiBayar.vb",
+              "ViewState": "AgIAAMUAAAAAAAAAAAASwNoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "OverriddenGroupName": "WindowsApp1\\Gateaway",
+              "WhenOpened": "2025-11-01T11:24:07.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ManageKategori.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageKategori.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\ManageKategori.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageKategori.vb",
+              "RelativeToolTip": "WindowsApp1\\Admin\\ManageKategori.vb",
+              "ViewState": "AgIAAI0BAAAAAAAAAAAawKABAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-02T04:52:05.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HistoriBelanja.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\User\\HistoriBelanja.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\User\\HistoriBelanja.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\User\\HistoriBelanja.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\User\\HistoriBelanja.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T11:26:22.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HistoriBelanja.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\User\\HistoriBelanja.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\User\\HistoriBelanja.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\User\\HistoriBelanja.vb",
+              "RelativeToolTip": "WindowsApp1\\User\\HistoriBelanja.vb",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAAALAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T11:26:23.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Keuangan.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\Keuangan.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\Keuangan.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\Keuangan.vb",
+              "RelativeToolTip": "WindowsApp1\\Admin\\Keuangan.vb",
+              "ViewState": "AgIAANUAAAAAAAAAAAAgwPIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T15:06:37.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KonfirmasiBayar.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Gateaway\\KonfirmasiBayar.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Gateaway\\KonfirmasiBayar.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Gateaway\\KonfirmasiBayar.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Gateaway\\KonfirmasiBayar.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T11:24:05.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ManageShelf.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageShelf.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\ManageShelf.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageShelf.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Admin\\ManageShelf.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-02T05:02:12.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Kasir.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\Kasir.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Staff\\Kasir.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\Kasir.vb",
+              "RelativeToolTip": "WindowsApp1\\Staff\\Kasir.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-02T05:18:10.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ManageShelf.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageShelf.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\ManageShelf.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageShelf.vb",
+              "RelativeToolTip": "WindowsApp1\\Admin\\ManageShelf.vb",
+              "ViewState": "AgIAAH8BAAAAAAAAAAAAwIYBAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-02T05:02:16.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ManageBarang.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageBarang.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\ManageBarang.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageBarang.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Admin\\ManageBarang.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-02T05:05:25.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ManageKategori.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageKategori.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Admin\\ManageKategori.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Admin\\ManageKategori.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Admin\\ManageKategori.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-02T04:51:54.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Kasir.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\Kasir.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Staff\\Kasir.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\Kasir.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Staff\\Kasir.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T11:23:55.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ManageStock.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\ManageStock.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Staff\\ManageStock.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\ManageStock.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Staff\\ManageStock.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T11:27:59.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IsiSaldo.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\IsiSaldo.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Staff\\IsiSaldo.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\IsiSaldo.vb",
+              "RelativeToolTip": "WindowsApp1\\Staff\\IsiSaldo.vb",
+              "ViewState": "AgIAABcAAAAAAAAAAAAqwCgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T17:20:24.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Dashboard.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Page\\Dashboard.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Page\\Dashboard.vb",
+              "ToolTip": "WindowsApp1/Page/Dashboard.vb",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "OverriddenGroupName": "WindowsApp1\\Page",
+              "OverriddenToolTip": "WindowsApp1/Page/Dashboard.vb",
+              "WhenOpened": "2025-11-01T11:22:37.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Dashboard.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Page\\Dashboard.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Page\\Dashboard.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Page\\Dashboard.vb",
+              "RelativeToolTip": "WindowsApp1\\Page\\Dashboard.vb",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAmwIAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T14:57:32.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IsiSaldo.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\IsiSaldo.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Staff\\IsiSaldo.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\IsiSaldo.vb [Design]",
+              "RelativeToolTip": "WindowsApp1\\Staff\\IsiSaldo.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T17:20:22.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ManageStock.vb",
+              "DocumentMoniker": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\ManageStock.vb",
+              "RelativeDocumentMoniker": "WindowsApp1\\Staff\\ManageStock.vb",
+              "ToolTip": "C:\\Users\\findo\\source\\repos\\WindowsApp1\\WindowsApp1\\Staff\\ManageStock.vb",
+              "RelativeToolTip": "WindowsApp1\\Staff\\ManageStock.vb",
+              "ViewState": "AgIAAFgBAAAAAAAAAAAqwHsBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-11-01T11:28:02.512Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
