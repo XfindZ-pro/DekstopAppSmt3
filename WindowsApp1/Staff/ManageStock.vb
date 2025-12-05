@@ -1,10 +1,11 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports System.Diagnostics
-Imports System.Data
+
 
 Public Class ManageStock
     Private db As New Database()
-    Private WithEvents saldoTimer As New Timer()
+
+    ' [PERBAIKAN IDE1006] Mengubah nama variabel menjadi PascalCase (Huruf depan besar)
+    Private WithEvents SaldoTimer As New Timer()
     Private barangTable As New DataTable()
     Private selectedBarangId As String = ""
 
@@ -21,8 +22,8 @@ Public Class ManageStock
 
     Private Sub ManageStock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Timer untuk update saldo setiap detik
-        saldoTimer.Interval = 1000 ' 1 detik
-        saldoTimer.Start()
+        SaldoTimer.Interval = 1000 ' 1 detik
+        SaldoTimer.Start()
 
         ' Setup DataGridView
         SiapkanKolomGrid()
@@ -49,9 +50,9 @@ Public Class ManageStock
     End Sub
 
     ' ------------------------------------------
-    '  Timer untuk update saldo
+    '  [PERBAIKAN IDE1006] Nama Event Handler mengikuti nama variabel timer
     ' ------------------------------------------
-    Private Sub saldoTimer_Tick(sender As Object, e As EventArgs) Handles saldoTimer.Tick
+    Private Sub SaldoTimer_Tick(sender As Object, e As EventArgs) Handles SaldoTimer.Tick
         UpdateLabelUang()
     End Sub
 
@@ -59,10 +60,9 @@ Public Class ManageStock
     '  Update Label Uang (Saldo Perusahaan)
     ' ------------------------------------------
     Private Sub UpdateLabelUang()
-        ' Selalu refresh saldo dari tabel ekonomi
         RefreshSaldoEkonomi()
-        ' Tampilkan saldo perusahaan, bukan saldo staff
-        LabelUang.Text = $"Kas: Rp {currentSaldoCash.ToString("N0")} | Bank: Rp {currentSaldoBank.ToString("N0")}"
+        ' [PERBAIKAN IDE0071] Interpolasi string yang lebih bersih
+        LabelUang.Text = $"Kas: Rp {currentSaldoCash:N0} | Bank: Rp {currentSaldoBank:N0}"
     End Sub
 
     ' ------------------------------------------
@@ -81,7 +81,7 @@ Public Class ManageStock
                 End Using
             End Using
         Catch ex As Exception
-            ' Gagal refresh, jangan ubah nilai
+            ' Silent fail agar tidak mengganggu timer
         Finally
             If db.Connection IsNot Nothing AndAlso db.Connection.State = ConnectionState.Open Then
                 db.CloseConnection()
@@ -97,9 +97,9 @@ Public Class ManageStock
             .AutoGenerateColumns = False
             .Columns.Clear()
             .Columns.Add(New DataGridViewTextBoxColumn() With {.Name = "IdBarang", .HeaderText = "ID", .DataPropertyName = "IdBarang", .Width = 0, .Visible = False})
-            .Columns.Add(New DataGridViewTextBoxColumn() With {.Name = "Nama", .HeaderText = "Name Barang", .DataPropertyName = "Nama", .Width = 200})
+            .Columns.Add(New DataGridViewTextBoxColumn() With {.Name = "Nama", .HeaderText = "Nama Barang", .DataPropertyName = "Nama", .Width = 200})
             .Columns.Add(New DataGridViewTextBoxColumn() With {.Name = "HargaBeli", .HeaderText = "Harga Beli", .DataPropertyName = "HargaBeli", .Width = 120, .DefaultCellStyle = New DataGridViewCellStyle() With {.Format = "N0", .Alignment = DataGridViewContentAlignment.MiddleRight}})
-            .Columns.Add(New DataGridViewTextBoxColumn() With {.Name = "Stock", .HeaderText = "Stock Barang", .DataPropertyName = "Stock", .Width = 100, .DefaultCellStyle = New DataGridViewCellStyle() With {.Alignment = DataGridViewContentAlignment.MiddleRight}})
+            .Columns.Add(New DataGridViewTextBoxColumn() With {.Name = "Stock", .HeaderText = "Stock", .DataPropertyName = "Stock", .Width = 100, .DefaultCellStyle = New DataGridViewCellStyle() With {.Alignment = DataGridViewContentAlignment.MiddleRight}})
             .Columns.Add(New DataGridViewTextBoxColumn() With {.Name = "Warna", .HeaderText = "Warna", .DataPropertyName = "Warna", .Width = 100})
             .Columns.Add(New DataGridViewTextBoxColumn() With {.Name = "Ukuran", .HeaderText = "Ukuran", .DataPropertyName = "Ukuran", .Width = 100})
             .ReadOnly = True
@@ -133,9 +133,11 @@ Public Class ManageStock
                 End Using
             End Using
             PanelDataStock.DataSource = barangTable
+
             If String.IsNullOrEmpty(searchTerm) OrElse searchTerm = "Cari nama barang..." Then
                 ResetFormSelection()
             End If
+
         Catch ex As Exception
             MessageBox.Show("Error saat memuat data barang: " & ex.Message)
         Finally
@@ -146,28 +148,27 @@ Public Class ManageStock
     End Sub
 
     ' ------------------------------------------
-    '  Event TextBox Pencarian
+    '  Event UI (Search & Selection)
     ' ------------------------------------------
     Private Sub TextBoxNama_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNama.TextChanged
         If TextBoxNama.Text <> "Cari nama barang..." Then
             LoadDataBarang(TextBoxNama.Text.Trim())
         End If
     End Sub
+
     Private Sub TextBoxNama_Enter(sender As Object, e As EventArgs) Handles TextBoxNama.Enter
         If TextBoxNama.Text = "Cari nama barang..." Then
             TextBoxNama.Text = ""
             TextBoxNama.ForeColor = Color.Black
         End If
     End Sub
+
     Private Sub TextBoxNama_Leave(sender As Object, e As EventArgs) Handles TextBoxNama.Leave
         If String.IsNullOrEmpty(TextBoxNama.Text) Then
             SetupTextBoxPlaceholder()
         End If
     End Sub
 
-    ' ------------------------------------------
-    '  Event Grid Click
-    ' ------------------------------------------
     Private Sub PanelDataStock_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles PanelDataStock.CellClick
         If e.RowIndex >= 0 Then
             Dim row As DataGridViewRow = PanelDataStock.Rows(e.RowIndex)
@@ -183,9 +184,10 @@ Public Class ManageStock
         End If
     End Sub
 
-    ' ------------------------------------------
-    '  Hitung Total Pembelian
-    ' ------------------------------------------
+    Private Sub NumericBeli_ValueChanged(sender As Object, e As EventArgs) Handles NumericBeli.ValueChanged
+        HitungTotal()
+    End Sub
+
     Private Sub HitungTotal()
         If Not String.IsNullOrEmpty(selectedBarangId) Then
             Dim selectedRow As DataRow = barangTable.AsEnumerable().FirstOrDefault(Function(r) r("IdBarang").ToString() = selectedBarangId)
@@ -200,29 +202,20 @@ Public Class ManageStock
         End If
     End Sub
 
-    Private Sub NumericBeli_ValueChanged(sender As Object, e As EventArgs) Handles NumericBeli.ValueChanged
-        HitungTotal()
-    End Sub
-
     ' ------------------------------------------
-    '  Proses Pembelian
+    '  LOGIKA UTAMA: Proses Pembelian
     ' ------------------------------------------
     Private Sub BeliBtn_Click(sender As Object, e As EventArgs) Handles BeliBtn.Click
-        ' --- Validasi 1: Input Form ---
+        ' --- Validasi Input ---
         If String.IsNullOrEmpty(selectedBarangId) Then
-            MessageBox.Show("Pilih barang terlebih dahulu dari tabel!", "Peringatan") : TextBoxNama.Focus() : Return
+            MessageBox.Show("Pilih barang terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning) : Return
         End If
         If NumericBeli.Value <= 0 Then
-            MessageBox.Show("Jumlah pembelian harus lebih dari 0!", "Peringatan") : NumericBeli.Focus() : Return
-        End If
-        If Not RadioTunai.Checked AndAlso Not RadioBank.Checked Then
-            MessageBox.Show("Pilih metode pembayaran (Tunai/Bank)!", "Peringatan") : Return
+            MessageBox.Show("Jumlah pembelian minimal 1.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning) : Return
         End If
 
         Dim selectedRow As DataRow = barangTable.AsEnumerable().FirstOrDefault(Function(r) r("IdBarang").ToString() = selectedBarangId)
-        If selectedRow Is Nothing Then
-            MessageBox.Show("Barang yang dipilih tidak valid.", "Error") : Return
-        End If
+        If selectedRow Is Nothing Then Return
 
         Dim hargaBeli As Integer = Convert.ToInt32(selectedRow("HargaBeli"))
         Dim jumlah As Integer = CInt(NumericBeli.Value)
@@ -230,122 +223,84 @@ Public Class ManageStock
         Dim namaBarang As String = selectedRow("Nama").ToString()
         Dim metodeBayar As String = If(RadioTunai.Checked, "CASH", "BANK")
 
-        ' --- Validasi 2: Saldo Perusahaan ---
-        ' Kita refresh saldo lagi tepat sebelum validasi
+        ' --- Validasi Saldo ---
         RefreshSaldoEkonomi()
-        Dim saldoCukup As Boolean = False
-        Dim saldoDimiliki As Decimal = 0
+        Dim saldoTersedia As Decimal = If(metodeBayar = "CASH", currentSaldoCash, currentSaldoBank)
 
-        If metodeBayar = "CASH" Then
-            saldoDimiliki = currentSaldoCash
-            If currentSaldoCash >= totalBiaya Then saldoCukup = True
-        Else ' BANK
-            saldoDimiliki = currentSaldoBank
-            If currentSaldoBank >= totalBiaya Then saldoCukup = True
-        End If
-
-        If Not saldoCukup Then
-            MessageBox.Show($"Saldo {metodeBayar} perusahaan tidak mencukupi!" & vbCrLf &
-                            $"Saldo {metodeBayar}: Rp {saldoDimiliki.ToString("N0")}" & vbCrLf &
-                            $"Dibutuhkan: Rp {totalBiaya.ToString("N0")}", "Saldo Kurang", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        If saldoTersedia < totalBiaya Then
+            MessageBox.Show($"Saldo {metodeBayar} Toko tidak cukup!" & vbCrLf &
+                            $"Saldo: Rp {saldoTersedia:N0}" & vbCrLf &
+                            $"Biaya: Rp {totalBiaya:N0}", "Transaksi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
-        ' --- Validasi 3: Konfirmasi User ---
-        Dim konfirmasi As DialogResult = MessageBox.Show(
-            "Konfirmasi Pembelian:" & vbCrLf &
-            "Barang: " & namaBarang & vbCrLf &
-            "Jumlah: " & jumlah.ToString() & vbCrLf &
-            "Total: Rp " & totalBiaya.ToString("N0") & vbCrLf &
-            "Metode: " & metodeBayar & vbCrLf & vbCrLf &
-            "Lanjutkan pembelian?",
-            "Konfirmasi Pembelian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        ' --- Konfirmasi ---
+        If MessageBox.Show($"Beli {jumlah} unit {namaBarang} seharga Rp {totalBiaya:N0} menggunakan {metodeBayar}?",
+                           "Konfirmasi Pembelian", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
 
-        If konfirmasi = DialogResult.Yes Then
             ProsesPembelian(selectedBarangId, namaBarang, jumlah, totalBiaya, metodeBayar)
         End If
     End Sub
 
-    ' ------------------------------------------
-    '  Proses Pembelian ke Database (Logika Akuntansi Baru)
-    ' ------------------------------------------
     Private Sub ProsesPembelian(idBarang As String, namaBarang As String, jumlah As Integer, totalBiaya As Integer, metodeBayar As String)
-        Dim conn As MySqlConnection = Nothing
+        ' [PERBAIKAN IDE0059] Hapus inisialisasi '= Nothing' agar lebih efisien
+        Dim conn As MySqlConnection
         Dim transaction As MySqlTransaction = Nothing
 
         Try
             db.Koneksi()
             conn = db.Connection
-            If conn.State <> ConnectionState.Open Then Throw New Exception("Koneksi gagal.")
+
+            If conn Is Nothing OrElse conn.State <> ConnectionState.Open Then
+                Throw New Exception("Koneksi database terputus.")
+            End If
+
             transaction = conn.BeginTransaction()
 
-            ' 1. Update stock barang (Tambah stok)
-            Dim sqlUpdateStock As String = "UPDATE barang SET Stock = Stock + @jumlah WHERE IdBarang = @idBarang;"
-            Using cmdUpdate As New MySqlCommand(sqlUpdateStock, conn, transaction)
-                cmdUpdate.Parameters.AddWithValue("@jumlah", jumlah)
-                cmdUpdate.Parameters.AddWithValue("@idBarang", idBarang)
-                cmdUpdate.ExecuteNonQuery()
+            ' 1. Tambah Stok Barang
+            Dim sqlStock As String = "UPDATE barang SET Stock = Stock + @jumlah WHERE IdBarang = @id"
+            Using cmd As New MySqlCommand(sqlStock, conn, transaction)
+                cmd.Parameters.AddWithValue("@jumlah", jumlah)
+                cmd.Parameters.AddWithValue("@id", idBarang)
+                cmd.ExecuteNonQuery()
             End Using
 
-            ' 2. Update tabel ekonomi (Kurangi saldo cash/bank, tambah pengeluaran)
-            Dim queryEkonomi As String = ""
-            If metodeBayar = "CASH" Then
-                queryEkonomi = "UPDATE ekonomi SET saldo_cash = saldo_cash - @total, total_pengeluaran = total_pengeluaran + @total WHERE id_utama = 'UTAMA'"
-            Else ' BANK
-                queryEkonomi = "UPDATE ekonomi SET saldo_bank = saldo_bank - @total, total_pengeluaran = total_pengeluaran + @total WHERE id_utama = 'UTAMA'"
-            End If
-
-            Using cmdEkonomi As New MySqlCommand(queryEkonomi, conn, transaction)
-                cmdEkonomi.Parameters.AddWithValue("@total", totalBiaya)
-                If cmdEkonomi.ExecuteNonQuery() = 0 Then Throw New Exception("Gagal update tabel ekonomi.")
+            ' 2. Kurangi Saldo Toko (Ekonomi)
+            Dim colSaldo As String = If(metodeBayar = "CASH", "saldo_cash", "saldo_bank")
+            Dim sqlEko As String = $"UPDATE ekonomi SET {colSaldo} = {colSaldo} - @biaya, total_pengeluaran = total_pengeluaran + @biaya WHERE id_utama = 'UTAMA'"
+            Using cmd As New MySqlCommand(sqlEko, conn, transaction)
+                cmd.Parameters.AddWithValue("@biaya", totalBiaya)
+                cmd.ExecuteNonQuery()
             End Using
 
-            ' 3. Catat di Jurnal Keuangan
+            ' 3. Catat Jurnal (Arus Keluar / Pengeluaran)
             Dim idJurnal As String = "JRNL-" & DateTime.Now.ToString("yyyyMMddHHmmss")
-            Dim queryJurnal As String = "INSERT INTO jurnal_keuangan (id_jurnal, jenis_transaksi, nominal, TipeAliran, MetodeBayar, keterangan, akunID_staff) " &
-                                        "VALUES (@idJurnal, 'BELI STOK', @nominal, 'KELUAR', @MetodeBayar, @keterangan, @akunIdStaff)"
-            Using cmdJurnal As New MySqlCommand(queryJurnal, conn, transaction)
-                cmdJurnal.Parameters.AddWithValue("@idJurnal", idJurnal)
-                cmdJurnal.Parameters.AddWithValue("@nominal", -totalBiaya) ' Pengeluaran dicatat sebagai negatif
-                cmdJurnal.Parameters.AddWithValue("@MetodeBayar", metodeBayar)
-                cmdJurnal.Parameters.AddWithValue("@keterangan", $"Beli stok: {jumlah} x {namaBarang}")
-                cmdJurnal.Parameters.AddWithValue("@akunIdStaff", SessionManager.AkunID)
-                If cmdJurnal.ExecuteNonQuery() = 0 Then Throw New Exception("Gagal catat jurnal keuangan.")
+            Dim sqlJurnal As String = "INSERT INTO jurnal_keuangan (id_jurnal, jenis_transaksi, nominal, TipeAliran, MetodeBayar, keterangan, akunID_staff) VALUES (@id, 'BELI STOK', @nom, 'KELUAR', @metode, @ket, @staff)"
+            Using cmd As New MySqlCommand(sqlJurnal, conn, transaction)
+                cmd.Parameters.AddWithValue("@id", idJurnal)
+                cmd.Parameters.AddWithValue("@nom", -totalBiaya) ' Negatif karena uang keluar
+                cmd.Parameters.AddWithValue("@metode", metodeBayar)
+                cmd.Parameters.AddWithValue("@ket", $"Pembelian Stok: {namaBarang} ({jumlah} pcs)")
+                cmd.Parameters.AddWithValue("@staff", SessionManager.AkunID)
+                cmd.ExecuteNonQuery()
             End Using
 
-            ' **[DIHAPUS]** Update saldo user (staff) dihapus total
-            ' Dim sqlUpdateSaldo As String = "UPDATE akun SET emoney = emoney - @totalBiaya WHERE akunID = @userId;"
-
-            ' Commit transaction
             transaction.Commit()
 
-            ' Update SessionManager (tidak perlu lagi, saldo staff tidak berubah)
-            ' RefreshSaldoFromDatabase() ' <-- Dihapus
+            MessageBox.Show("Pembelian berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-            ' Refresh data grid
+            ' Reset UI
             LoadDataBarang(TextBoxNama.Text)
-
-            ' Reset form selection
             ResetFormSelection()
 
-            MessageBox.Show("Pembelian berhasil!" & vbCrLf &
-                            "Stock " & namaBarang & " bertambah " & jumlah.ToString() & " unit" & vbCrLf &
-                            $"Saldo {metodeBayar} perusahaan berkurang: Rp {totalBiaya.ToString("N0")}")
-
         Catch ex As Exception
-            ' Rollback jika ada error
             Try : transaction?.Rollback() : Catch : End Try
-            MessageBox.Show("Error saat proses pembelian: " & ex.Message)
+            MessageBox.Show("Gagal memproses pembelian: " & ex.Message, "Error Database", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            If db.Connection IsNot Nothing AndAlso db.Connection.State = ConnectionState.Open Then
-                db.CloseConnection()
-            End If
+            db.CloseConnection()
         End Try
     End Sub
 
-    ' ------------------------------------------
-    '  Reset Form Selection
-    ' ------------------------------------------
     Private Sub ResetFormSelection()
         selectedBarangId = ""
         NumericBeli.Value = 0
@@ -354,27 +309,18 @@ Public Class ManageStock
         PanelDataStock.ClearSelection()
     End Sub
 
-    ' ------------------------------------------
-    '  Label Uang Click
-    ' ------------------------------------------
-    Private Sub LabelUang_Click(sender As Object, e As EventArgs) Handles LabelUang.Click
-        ' Refresh saldo manual
-        UpdateLabelUang()
-    End Sub
-
-    ' ------------------------------------------
-    '  Tombol Reset Pencarian
-    ' ------------------------------------------
     Private Sub BtnReset_Click(sender As Object, e As EventArgs) Handles BtnReset.Click
         SetupTextBoxPlaceholder()
         LoadDataBarang()
-        ResetFormSelection()
     End Sub
 
     Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
-        ' Arahkan ke form dashboard
-        Dim dashboardForm As New Dashboard() ' Form Dashboard
+        Dim dashboardForm As New Dashboard()
         dashboardForm.Show()
-        Me.Hide() ' Menyembunyikan form stock
+        Me.Hide()
+    End Sub
+
+    Private Sub LabelUang_Click(sender As Object, e As EventArgs) Handles LabelUang.Click
+        UpdateLabelUang()
     End Sub
 End Class

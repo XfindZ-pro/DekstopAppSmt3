@@ -22,9 +22,9 @@ Partial Class Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.PanelUp = New System.Windows.Forms.Panel()
         Me.GroupAdmin = New System.Windows.Forms.GroupBox()
         Me.PanelAdmin = New System.Windows.Forms.Panel()
+        Me.AturKasBtn = New System.Windows.Forms.Button()
         Me.KeuanganBtn = New System.Windows.Forms.Button()
         Me.RakBtn = New System.Windows.Forms.Button()
         Me.KategoriBtn = New System.Windows.Forms.Button()
@@ -34,25 +34,18 @@ Partial Class Dashboard
         Me.LabelWarung = New System.Windows.Forms.Label()
         Me.UsernameLabel = New System.Windows.Forms.Label()
         Me.LogoutBtn = New System.Windows.Forms.Button()
-        Me.PanelUser = New System.Windows.Forms.GroupBox()
-        Me.HistoriBelanjaBtn = New System.Windows.Forms.Button()
         Me.PanelStaff = New System.Windows.Forms.GroupBox()
+        Me.SetorKasBtn = New System.Windows.Forms.Button()
         Me.IsiSaldoBtn = New System.Windows.Forms.Button()
         Me.KasirBtn = New System.Windows.Forms.Button()
         Me.ManageStockBtn = New System.Windows.Forms.Button()
+        Me.HistoriBelanjaBtn = New System.Windows.Forms.Button()
+        Me.PanelUser = New System.Windows.Forms.GroupBox()
         Me.GroupAdmin.SuspendLayout()
         Me.PanelAdmin.SuspendLayout()
-        Me.PanelUser.SuspendLayout()
         Me.PanelStaff.SuspendLayout()
+        Me.PanelUser.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'PanelUp
-        '
-        Me.PanelUp.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.PanelUp.Location = New System.Drawing.Point(-8, 150)
-        Me.PanelUp.Name = "PanelUp"
-        Me.PanelUp.Size = New System.Drawing.Size(1294, 16)
-        Me.PanelUp.TabIndex = 0
         '
         'GroupAdmin
         '
@@ -68,6 +61,7 @@ Partial Class Dashboard
         'PanelAdmin
         '
         Me.PanelAdmin.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.PanelAdmin.Controls.Add(Me.AturKasBtn)
         Me.PanelAdmin.Controls.Add(Me.KeuanganBtn)
         Me.PanelAdmin.Controls.Add(Me.RakBtn)
         Me.PanelAdmin.Controls.Add(Me.KategoriBtn)
@@ -78,18 +72,27 @@ Partial Class Dashboard
         Me.PanelAdmin.Size = New System.Drawing.Size(1029, 100)
         Me.PanelAdmin.TabIndex = 2
         '
+        'AturKasBtn
+        '
+        Me.AturKasBtn.Location = New System.Drawing.Point(62, 13)
+        Me.AturKasBtn.Name = "AturKasBtn"
+        Me.AturKasBtn.Size = New System.Drawing.Size(136, 31)
+        Me.AturKasBtn.TabIndex = 5
+        Me.AturKasBtn.Text = "Atur Kas"
+        Me.AturKasBtn.UseVisualStyleBackColor = True
+        '
         'KeuanganBtn
         '
         Me.KeuanganBtn.Location = New System.Drawing.Point(62, 54)
         Me.KeuanganBtn.Name = "KeuanganBtn"
         Me.KeuanganBtn.Size = New System.Drawing.Size(136, 31)
         Me.KeuanganBtn.TabIndex = 4
-        Me.KeuanganBtn.Text = "Keuangan"
+        Me.KeuanganBtn.Text = "Audit Kas"
         Me.KeuanganBtn.UseVisualStyleBackColor = True
         '
         'RakBtn
         '
-        Me.RakBtn.Location = New System.Drawing.Point(234, 63)
+        Me.RakBtn.Location = New System.Drawing.Point(223, 63)
         Me.RakBtn.Name = "RakBtn"
         Me.RakBtn.Size = New System.Drawing.Size(136, 31)
         Me.RakBtn.TabIndex = 3
@@ -98,7 +101,7 @@ Partial Class Dashboard
         '
         'KategoriBtn
         '
-        Me.KategoriBtn.Location = New System.Drawing.Point(408, 63)
+        Me.KategoriBtn.Location = New System.Drawing.Point(383, 13)
         Me.KategoriBtn.Name = "KategoriBtn"
         Me.KategoriBtn.Size = New System.Drawing.Size(136, 31)
         Me.KategoriBtn.TabIndex = 2
@@ -107,7 +110,7 @@ Partial Class Dashboard
         '
         'BarangBtn
         '
-        Me.BarangBtn.Location = New System.Drawing.Point(315, 13)
+        Me.BarangBtn.Location = New System.Drawing.Point(383, 63)
         Me.BarangBtn.Name = "BarangBtn"
         Me.BarangBtn.Size = New System.Drawing.Size(136, 31)
         Me.BarangBtn.TabIndex = 1
@@ -116,7 +119,7 @@ Partial Class Dashboard
         '
         'AkunBtn
         '
-        Me.AkunBtn.Location = New System.Drawing.Point(62, 13)
+        Me.AkunBtn.Location = New System.Drawing.Point(223, 13)
         Me.AkunBtn.Name = "AkunBtn"
         Me.AkunBtn.Size = New System.Drawing.Size(136, 31)
         Me.AkunBtn.TabIndex = 0
@@ -136,7 +139,7 @@ Partial Class Dashboard
         '
         Me.LabelWarung.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.LabelWarung.Font = New System.Drawing.Font("Microsoft YaHei", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelWarung.Location = New System.Drawing.Point(435, 9)
+        Me.LabelWarung.Location = New System.Drawing.Point(99, 23)
         Me.LabelWarung.Name = "LabelWarung"
         Me.LabelWarung.Size = New System.Drawing.Size(442, 123)
         Me.LabelWarung.TabIndex = 2
@@ -146,7 +149,7 @@ Partial Class Dashboard
         '
         Me.UsernameLabel.AutoSize = True
         Me.UsernameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UsernameLabel.Location = New System.Drawing.Point(1035, 183)
+        Me.UsernameLabel.Location = New System.Drawing.Point(946, 80)
         Me.UsernameLabel.Name = "UsernameLabel"
         Me.UsernameLabel.Size = New System.Drawing.Size(86, 20)
         Me.UsernameLabel.TabIndex = 3
@@ -154,47 +157,38 @@ Partial Class Dashboard
         '
         'LogoutBtn
         '
-        Me.LogoutBtn.Location = New System.Drawing.Point(884, 179)
+        Me.LogoutBtn.Location = New System.Drawing.Point(950, 116)
         Me.LogoutBtn.Name = "LogoutBtn"
         Me.LogoutBtn.Size = New System.Drawing.Size(75, 30)
         Me.LogoutBtn.TabIndex = 4
         Me.LogoutBtn.Text = "Logout"
         Me.LogoutBtn.UseVisualStyleBackColor = True
         '
-        'PanelUser
-        '
-        Me.PanelUser.Controls.Add(Me.HistoriBelanjaBtn)
-        Me.PanelUser.Location = New System.Drawing.Point(81, 215)
-        Me.PanelUser.Name = "PanelUser"
-        Me.PanelUser.Size = New System.Drawing.Size(1077, 67)
-        Me.PanelUser.TabIndex = 5
-        Me.PanelUser.TabStop = False
-        Me.PanelUser.Text = "User"
-        '
-        'HistoriBelanjaBtn
-        '
-        Me.HistoriBelanjaBtn.Location = New System.Drawing.Point(116, 21)
-        Me.HistoriBelanjaBtn.Name = "HistoriBelanjaBtn"
-        Me.HistoriBelanjaBtn.Size = New System.Drawing.Size(153, 23)
-        Me.HistoriBelanjaBtn.TabIndex = 2
-        Me.HistoriBelanjaBtn.Text = "Histori Belanja"
-        Me.HistoriBelanjaBtn.UseVisualStyleBackColor = True
-        '
         'PanelStaff
         '
+        Me.PanelStaff.Controls.Add(Me.SetorKasBtn)
         Me.PanelStaff.Controls.Add(Me.IsiSaldoBtn)
         Me.PanelStaff.Controls.Add(Me.KasirBtn)
         Me.PanelStaff.Controls.Add(Me.ManageStockBtn)
-        Me.PanelStaff.Location = New System.Drawing.Point(81, 288)
+        Me.PanelStaff.Location = New System.Drawing.Point(81, 305)
         Me.PanelStaff.Name = "PanelStaff"
         Me.PanelStaff.Size = New System.Drawing.Size(1077, 67)
         Me.PanelStaff.TabIndex = 6
         Me.PanelStaff.TabStop = False
         Me.PanelStaff.Text = "Staff"
         '
+        'SetorKasBtn
+        '
+        Me.SetorKasBtn.Location = New System.Drawing.Point(336, 22)
+        Me.SetorKasBtn.Name = "SetorKasBtn"
+        Me.SetorKasBtn.Size = New System.Drawing.Size(91, 23)
+        Me.SetorKasBtn.TabIndex = 2
+        Me.SetorKasBtn.Text = "Setor Kas"
+        Me.SetorKasBtn.UseVisualStyleBackColor = True
+        '
         'IsiSaldoBtn
         '
-        Me.IsiSaldoBtn.Location = New System.Drawing.Point(405, 22)
+        Me.IsiSaldoBtn.Location = New System.Drawing.Point(450, 22)
         Me.IsiSaldoBtn.Name = "IsiSaldoBtn"
         Me.IsiSaldoBtn.Size = New System.Drawing.Size(91, 23)
         Me.IsiSaldoBtn.TabIndex = 0
@@ -203,7 +197,7 @@ Partial Class Dashboard
         '
         'KasirBtn
         '
-        Me.KasirBtn.Location = New System.Drawing.Point(288, 22)
+        Me.KasirBtn.Location = New System.Drawing.Point(245, 22)
         Me.KasirBtn.Name = "KasirBtn"
         Me.KasirBtn.Size = New System.Drawing.Size(75, 23)
         Me.KasirBtn.TabIndex = 1
@@ -212,19 +206,38 @@ Partial Class Dashboard
         '
         'ManageStockBtn
         '
-        Me.ManageStockBtn.Location = New System.Drawing.Point(116, 22)
+        Me.ManageStockBtn.Location = New System.Drawing.Point(84, 22)
         Me.ManageStockBtn.Name = "ManageStockBtn"
         Me.ManageStockBtn.Size = New System.Drawing.Size(147, 23)
         Me.ManageStockBtn.TabIndex = 0
         Me.ManageStockBtn.Text = "Manajemen Stock"
         Me.ManageStockBtn.UseVisualStyleBackColor = True
         '
+        'HistoriBelanjaBtn
+        '
+        Me.HistoriBelanjaBtn.Location = New System.Drawing.Point(84, 21)
+        Me.HistoriBelanjaBtn.Name = "HistoriBelanjaBtn"
+        Me.HistoriBelanjaBtn.Size = New System.Drawing.Size(153, 23)
+        Me.HistoriBelanjaBtn.TabIndex = 2
+        Me.HistoriBelanjaBtn.Text = "Histori Belanja"
+        Me.HistoriBelanjaBtn.UseVisualStyleBackColor = True
+        '
+        'PanelUser
+        '
+        Me.PanelUser.Controls.Add(Me.HistoriBelanjaBtn)
+        Me.PanelUser.Location = New System.Drawing.Point(81, 232)
+        Me.PanelUser.Name = "PanelUser"
+        Me.PanelUser.Size = New System.Drawing.Size(1077, 67)
+        Me.PanelUser.TabIndex = 5
+        Me.PanelUser.TabStop = False
+        Me.PanelUser.Text = "User"
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.Desain_tanpa_judul
+        Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.doggyMobilSport
         Me.ClientSize = New System.Drawing.Size(1283, 567)
         Me.Controls.Add(Me.PanelStaff)
         Me.Controls.Add(Me.PanelUser)
@@ -232,19 +245,16 @@ Partial Class Dashboard
         Me.Controls.Add(Me.UsernameLabel)
         Me.Controls.Add(Me.LabelWarung)
         Me.Controls.Add(Me.GroupAdmin)
-        Me.Controls.Add(Me.PanelUp)
         Me.Name = "Dashboard"
         Me.Text = "Dashboard"
         Me.GroupAdmin.ResumeLayout(False)
         Me.PanelAdmin.ResumeLayout(False)
-        Me.PanelUser.ResumeLayout(False)
         Me.PanelStaff.ResumeLayout(False)
+        Me.PanelUser.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents PanelUp As Panel
     Friend WithEvents GroupAdmin As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents PanelAdmin As Panel
@@ -253,7 +263,6 @@ Partial Class Dashboard
     Friend WithEvents UsernameLabel As Label
     Friend WithEvents LogoutBtn As Button
     Friend WithEvents BarangBtn As Button
-    Friend WithEvents PanelUser As GroupBox
     Friend WithEvents KategoriBtn As Button
     Friend WithEvents RakBtn As Button
     Friend WithEvents PanelStaff As GroupBox
@@ -262,4 +271,7 @@ Partial Class Dashboard
     Friend WithEvents IsiSaldoBtn As Button
     Friend WithEvents KeuanganBtn As Button
     Friend WithEvents HistoriBelanjaBtn As Button
+    Friend WithEvents PanelUser As GroupBox
+    Friend WithEvents SetorKasBtn As Button
+    Friend WithEvents AturKasBtn As Button
 End Class

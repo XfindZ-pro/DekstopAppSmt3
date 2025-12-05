@@ -31,7 +31,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -239,10 +239,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AturKas.Designer.vb">
+      <DependentUpon>AturKas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AturKas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin\Keuangan.Designer.vb">
       <DependentUpon>Keuangan.vb</DependentUpon>
     </Compile>
     <Compile Include="Admin\Keuangan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\LaporanKeuangan.Designer.vb">
+      <DependentUpon>LaporanKeuangan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LaporanKeuangan.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\ManageBarang.Designer.vb">
@@ -263,26 +275,17 @@
     <Compile Include="Admin\ManageShelf.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CobaSource.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CobaSource.rpt</DependentUpon>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="config\database.vb" />
     <Compile Include="config\SessionManager.vb" />
-    <Compile Include="CrystalReport11.vb">
+    <Compile Include="DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.CrystalReport</DependentUpon>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Page\KonfirmasiBayar.Designer.vb">
+    <Compile Include="Gateaway\KonfirmasiBayar.Designer.vb">
       <DependentUpon>KonfirmasiBayar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Page\KonfirmasiBayar.vb">
+    <Compile Include="Gateaway\KonfirmasiBayar.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PageFront\Login.Designer.vb">
@@ -303,10 +306,23 @@
     <Compile Include="Page\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ReportKeuangan.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportKeuangan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Staff\IsiSaldo.Designer.vb">
       <DependentUpon>IsiSaldo.vb</DependentUpon>
     </Compile>
     <Compile Include="Staff\IsiSaldo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\SetorKas.Designer.vb">
+      <DependentUpon>SetorKas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\SetorKas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Staff\Kasir.Designer.vb">
@@ -358,8 +374,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Admin\AturKas.resx">
+      <DependentUpon>AturKas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\Keuangan.resx">
       <DependentUpon>Keuangan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\LaporanKeuangan.resx">
+      <DependentUpon>LaporanKeuangan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageBarang.resx">
       <DependentUpon>ManageBarang.vb</DependentUpon>
@@ -370,17 +392,7 @@
     <EmbeddedResource Include="Admin\ManageShelf.resx">
       <DependentUpon>ManageShelf.vb</DependentUpon>
     </EmbeddedResource>
-    <Content Include="CobaSource.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CobaSource.vb</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="CrystalReport1.CrystalReport">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport11.vb</LastGenOutput>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <EmbeddedResource Include="Page\KonfirmasiBayar.resx">
+    <EmbeddedResource Include="Gateaway\KonfirmasiBayar.resx">
       <DependentUpon>KonfirmasiBayar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PageFront\Login.resx">
@@ -392,8 +404,16 @@
     <EmbeddedResource Include="Page\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportKeuangan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportKeuangan.vb</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Staff\IsiSaldo.resx">
       <DependentUpon>IsiSaldo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff\SetorKas.resx">
+      <DependentUpon>SetorKas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff\Kasir.resx">
       <DependentUpon>Kasir.vb</DependentUpon>
@@ -418,6 +438,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -456,15 +487,10 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\vb\Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CrystalReportViewerPage.aspx" />
-    <Content Include="CrystalReportViewerPage.aspx.cs" />
-    <Content Include="CrystalReportViewerPage.aspx.designer.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Gateaway\" />
+    <None Include="Resources\doggyMobilSport.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

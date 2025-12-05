@@ -132,18 +132,21 @@
         keuanganForm.Show()
         Me.Hide() ' Menyembunyikan form Dashboard jika perlu
     End Sub
-    Private Sub PanelStaff_Enter(sender As Object, e As EventArgs) Handles PanelStaff.Enter
-        ' Kosong atau tambahkan logika sesuai kebutuhan
+
+    Private Sub KasBtn_Click(sender As Object, e As EventArgs) Handles SetorKasBtn.Click
+        ' Arahkan ke form Setor Kas
+        Dim setorKasForm As New SetorKas()
+        setorKasForm.Show()
+        Me.Hide()
     End Sub
 
-    ' Event untuk PanelAdmin (jika ada interaksi khusus)
-    Private Sub PanelAdmin_Enter(sender As Object, e As EventArgs) Handles PanelAdmin.Enter
-        ' Kosong atau tambahkan logika sesuai kebutuhan
+    Private Sub AturKasBtn_Click(sender As Object, e As EventArgs) Handles AturKasBtn.Click
+        ' Arahkan ke form Atur Kas
+        Dim aturKasForm As New AturKas()
+        aturKasForm.Show()
+        Me.Hide()
     End Sub
 
-    ' Event untuk PanelUser (jika ada interaksi khusus)
-    Private Sub PanelUser_Enter(sender As Object, e As EventArgs) Handles PanelUser.Enter
-        ' Kosong atau tambahkan logika sesuai kebutuhan
-    End Sub
+
 
 End Class

@@ -37,6 +37,11 @@ WindowsApp1
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="M:WindowsApp1.AturKas.ExecuteTransaction(System.String,System.String,System.String,System.Int32,System.String,System.Boolean)">
+ <summary>
+ Fungsi Transaksi Generic untuk menangani Kirim/Tarik/Deposit
+ </summary>
+</member>
 <member name="M:WindowsApp1.Keuangan.SiapkanKolomGrid">
  <summary>
  Mengatur properti dan kolom untuk DataGridKeuangan
@@ -104,62 +109,164 @@ WindowsApp1
  Tombol "Baru" sekarang mereset form dan meng-generate ID baru
  </summary>
 </member>
+<member name="M:WindowsApp1.SessionManager.SetSession(System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+ <summary>
+ Mengisi data sesi saat user berhasil login.
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.ClearSession">
+ <summary>
+ Menghapus data sesi (Logout). Reset semua ke default.
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.IsUserLoggedIn">
+ <summary>
+ Cek apakah ada user yang sedang login.
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.GetUserInfo">
+ <summary>
+ Mengambil info user dalam format string (untuk Debugging/Log).
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.UpdateEmoney(System.Int32)">
+ <summary>
+ Update nilai E-Money secara absolut (timpa nilai lama).
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.AddEmoney(System.Int32)">
+ <summary>
+ Menambah saldo E-Money (TopUp/Terima Transfer).
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.SubtractEmoney(System.Int32)">
+ <summary>
+ Mengurangi saldo E-Money (Belanja/Transfer Keluar).
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.HasSufficientEmoney(System.Int32)">
+ <summary>
+ Cek kecukupan saldo E-Money.
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.UpdateCash(System.Int32)">
+ <summary>
+ Update nilai Cash secara absolut.
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.AddCash(System.Int32)">
+ <summary>
+ Menambah uang tunai di tangan (Terima pembayaran tunai).
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.SubtractCash(System.Int32)">
+ <summary>
+ Mengurangi uang tunai di tangan (Setor ke toko / Kembalian).
+ </summary>
+</member>
+<member name="M:WindowsApp1.SessionManager.HasSufficientCash(System.Int32)">
+ <summary>
+ Cek kecukupan uang tunai.
+ </summary>
+</member>
+<member name="T:WindowsApp1.DataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1.jurnal_keuanganDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1.akunDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1.jurnal_keuanganRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1.akunRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1.jurnal_keuanganRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1.akunRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1TableAdapters.jurnal_keuanganTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1TableAdapters.akunTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:WindowsApp1.DataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(WindowsApp1.DataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:WindowsApp1.DataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(WindowsApp1.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:WindowsApp1.DataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(WindowsApp1.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:WindowsApp1.DataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:WindowsApp1.DataSet1TableAdapters.TableAdapterManager.UpdateAll(WindowsApp1.DataSet1)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:WindowsApp1.DataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="M:WindowsApp1.KonfirmasiBayar.#ctor(System.Decimal,System.Decimal,System.Decimal,System.String,System.String,System.String)">
  <summary>
- Constructor (Sub New) untuk MENERIMA data dari Form Kasir.
+ Constructor: Menerima data dari form Kasir
  </summary>
 </member>
 <member name="M:WindowsApp1.KonfirmasiBayar.BtnKonfirmasi_Click(System.Object,System.EventArgs)">
  <summary>
- **[PERUBAHAN LOGIKA]**
- GATEWAY utama. Menjalankan SEMUA query SQL, termasuk validasi saldo cash untuk kembalian.
+ EKSEKUSI TRANSAKSI KE DATABASE
  </summary>
 </member>
 <member name="M:WindowsApp1.KonfirmasiBayar.BtnDownloadStruk_Click(System.Object,System.EventArgs)">
  <summary>
- Tombol ini akan muncul setelah transaksi sukses. Memanggil fungsi GenerateStrukPDF.
- </summary>
-</member>
-<member name="M:WindowsApp1.KonfirmasiBayar.GenerateStrukPDF(System.String,System.String)">
- <summary>
- Fungsi inti untuk membuat file PDF struk menggunakan iTextSharp.
- </summary>
-</member>
-<member name="M:WindowsApp1.KonfirmasiBayar.BtnTutup_Click(System.Object,System.EventArgs)">
- <summary>
- Tombol ini akan muncul setelah transaksi sukses. Menutup form.
- </summary>
-</member>
-<member name="M:WindowsApp1.Register.GenerateUniqueAkunID(MySql.Data.MySqlClient.MySqlConnection)">
- <summary>
- **[PERBAIKAN]** Fungsi ini harus memeriksa keunikan di database
- untuk menghindari kegagalan 'INSERT' jika ID hasil acak sudah ada.
- </summary>
-</member>
-<member name="M:WindowsApp1.Register.IsUsernameExists(System.String,MySql.Data.MySqlClient.MySqlConnection)">
- <summary>
- **[PERBAIKAN]** Fungsi ini sekarang menerima koneksi yang sudah terbuka.
- </summary>
-</member>
-<member name="M:WindowsApp1.Register.IsEmailExists(System.String,MySql.Data.MySqlClient.MySqlConnection)">
- <summary>
- **[PERBAIKAN]** Fungsi ini sekarang menerima koneksi yang sudah terbuka.
- </summary>
-</member>
-<member name="M:WindowsApp1.Register.ValidateInput(System.String,System.String,System.String,MySql.Data.MySqlClient.MySqlConnection)">
- <summary>
- **[PERBAIKAN]** Fungsi ini sekarang menerima koneksi untuk memeriksa duplikat.
- </summary>
-</member>
-<member name="M:WindowsApp1.Kasir.BtnHapusKeranjang_Click(System.Object,System.EventArgs)">
- <summary>
- **[LOGIKA DIISI]**
- Menghapus item yang dipilih dari keranjang.
- </summary>
-</member>
-<member name="M:WindowsApp1.Kasir.GetSaldoPelanggan(System.String)">
- <summary>
- **[PERBAIKAN]** Ganti 'money' menjadi 'emoney'
+ Generate PDF Struk
  </summary>
 </member>
 <member name="M:WindowsApp1.HistoriBelanja.GenerateStrukPDF(System.String,System.String)">

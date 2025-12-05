@@ -41,6 +41,7 @@ Partial Class Keuangan
         Me.LabelTotalPengeluaran = New System.Windows.Forms.Label()
         Me.BtnSinkron = New System.Windows.Forms.Button()
         Me.BtnLaporan = New System.Windows.Forms.Button()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         CType(Me.DataGridKeuangan, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericHalaman, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -195,7 +196,7 @@ Partial Class Keuangan
         '
         'BtnLaporan
         '
-        Me.BtnLaporan.Location = New System.Drawing.Point(1049, 54)
+        Me.BtnLaporan.Location = New System.Drawing.Point(1069, 47)
         Me.BtnLaporan.Name = "BtnLaporan"
         Me.BtnLaporan.Size = New System.Drawing.Size(152, 23)
         Me.BtnLaporan.TabIndex = 10
@@ -246,4 +247,5 @@ Partial Class Keuangan
     Friend WithEvents LabelTotalPengeluaran As Label
     Friend WithEvents BtnSinkron As Button
     Friend WithEvents BtnLaporan As Button
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class

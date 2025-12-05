@@ -25,7 +25,7 @@ Partial Class Login
         Me.UsernameText = New System.Windows.Forms.TextBox()
         Me.PasswordText = New System.Windows.Forms.TextBox()
         Me.LoginBtn = New System.Windows.Forms.Button()
-        Me.kembaliBtn = New System.Windows.Forms.Button()
+        Me.KembaliBtn = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UsernameText
@@ -53,21 +53,21 @@ Partial Class Login
         Me.LoginBtn.Text = "Login"
         Me.LoginBtn.UseVisualStyleBackColor = True
         '
-        'kembaliBtn
+        'KembaliBtn
         '
-        Me.kembaliBtn.Location = New System.Drawing.Point(39, 31)
-        Me.kembaliBtn.Name = "kembaliBtn"
-        Me.kembaliBtn.Size = New System.Drawing.Size(75, 23)
-        Me.kembaliBtn.TabIndex = 3
-        Me.kembaliBtn.Text = "Kembali"
-        Me.kembaliBtn.UseVisualStyleBackColor = True
+        Me.KembaliBtn.Location = New System.Drawing.Point(39, 31)
+        Me.KembaliBtn.Name = "KembaliBtn"
+        Me.KembaliBtn.Size = New System.Drawing.Size(75, 23)
+        Me.KembaliBtn.TabIndex = 3
+        Me.KembaliBtn.Text = "Kembali"
+        Me.KembaliBtn.UseVisualStyleBackColor = True
         '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1317, 544)
-        Me.Controls.Add(Me.kembaliBtn)
+        Me.Controls.Add(Me.KembaliBtn)
         Me.Controls.Add(Me.LoginBtn)
         Me.Controls.Add(Me.PasswordText)
         Me.Controls.Add(Me.UsernameText)
@@ -81,5 +81,5 @@ Partial Class Login
     Friend WithEvents UsernameText As TextBox
     Friend WithEvents PasswordText As TextBox
     Friend WithEvents LoginBtn As Button
-    Friend WithEvents kembaliBtn As Button
+    Friend WithEvents KembaliBtn As Button
 End Class

@@ -177,7 +177,9 @@ Public Class Keuangan
     ''' </summary>
     Private Sub BtnSinkron_Click(sender As Object, e As EventArgs) Handles BtnSinkron.Click
         Dim calculatedTotalEmoney As Decimal = 0
-        Dim conn As MySqlConnection = Nothing
+
+        ' --- FIX DI SINI: Hapus "= Nothing". Biarkan deklarasi saja. ---
+        Dim conn As MySqlConnection
         Dim transaction As MySqlTransaction = Nothing
 
         If MessageBox.Show("Ini akan menghitung ulang total saldo e-money dari SEMUA akun (user, staff, admin) dan memperbarui tabel 'ekonomi'. Lanjutkan?", "Konfirmasi Sinkronisasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.No Then
@@ -190,7 +192,7 @@ Public Class Keuangan
             If conn.State <> ConnectionState.Open Then Throw New Exception("Koneksi Gagal.")
             transaction = conn.BeginTransaction()
 
-            ' 1. **[PERBAIKAN]** Hitung total emoney dari SEMUA akun, tanpa filter role
+            ' 1. Hitung total emoney dari SEMUA akun, tanpa filter role
             Dim querySum As String = "SELECT SUM(emoney) FROM akun"
             Using cmdSum As New MySqlCommand(querySum, conn, transaction)
                 Dim result = cmdSum.ExecuteScalar()
@@ -223,6 +225,12 @@ Public Class Keuangan
         LoadEkonomiData()
     End Sub
 
+    Private Sub BtnLaporan_Click(sender As Object, e As EventArgs) Handles BtnLaporan.Click
+        Dim laporanKeuanganForm As New LaporanKeuangan()
+        laporanKeuanganForm.Show()
+        Me.Hide()
+    End Sub
+
     ' --- Event Handler Kosong ---
     Private Sub LabelHalaman_Click(sender As Object, e As EventArgs) Handles LabelHalaman.Click
     End Sub
@@ -238,6 +246,5 @@ Public Class Keuangan
     End Sub
     Private Sub LabelTotalPengeluaran_Click(sender As Object, e As EventArgs) Handles LabelTotalPengeluaran.Click
     End Sub
-
 
 End Class

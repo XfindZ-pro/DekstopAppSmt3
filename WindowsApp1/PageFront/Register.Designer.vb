@@ -24,10 +24,10 @@ Partial Class Register
     Private Sub InitializeComponent()
         Me.UsernameText = New System.Windows.Forms.TextBox()
         Me.PasswordText = New System.Windows.Forms.MaskedTextBox()
-        Me.registerBtn = New System.Windows.Forms.Button()
+        Me.RegisterBtn = New System.Windows.Forms.Button()
         Me.EmailText = New System.Windows.Forms.TextBox()
         Me.labelInfo = New System.Windows.Forms.Label()
-        Me.kembaliBtn = New System.Windows.Forms.Button()
+        Me.KembaliBtn = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'UsernameText
@@ -50,14 +50,14 @@ Partial Class Register
         Me.PasswordText.Text = "Password"
         Me.PasswordText.UseWaitCursor = True
         '
-        'registerBtn
+        'RegisterBtn
         '
-        Me.registerBtn.Location = New System.Drawing.Point(556, 337)
-        Me.registerBtn.Name = "registerBtn"
-        Me.registerBtn.Size = New System.Drawing.Size(126, 28)
-        Me.registerBtn.TabIndex = 2
-        Me.registerBtn.Text = "Register"
-        Me.registerBtn.UseVisualStyleBackColor = True
+        Me.RegisterBtn.Location = New System.Drawing.Point(556, 337)
+        Me.RegisterBtn.Name = "RegisterBtn"
+        Me.RegisterBtn.Size = New System.Drawing.Size(126, 28)
+        Me.RegisterBtn.TabIndex = 2
+        Me.RegisterBtn.Text = "Register"
+        Me.RegisterBtn.UseVisualStyleBackColor = True
         '
         'EmailText
         '
@@ -78,24 +78,24 @@ Partial Class Register
         Me.labelInfo.TabIndex = 4
         Me.labelInfo.Text = "Mohon isi Username, Email, dan Password"
         '
-        'kembaliBtn
+        'KembaliBtn
         '
-        Me.kembaliBtn.Location = New System.Drawing.Point(58, 60)
-        Me.kembaliBtn.Name = "kembaliBtn"
-        Me.kembaliBtn.Size = New System.Drawing.Size(138, 34)
-        Me.kembaliBtn.TabIndex = 5
-        Me.kembaliBtn.Text = "Kembali"
-        Me.kembaliBtn.UseVisualStyleBackColor = True
+        Me.KembaliBtn.Location = New System.Drawing.Point(58, 60)
+        Me.KembaliBtn.Name = "KembaliBtn"
+        Me.KembaliBtn.Size = New System.Drawing.Size(138, 34)
+        Me.KembaliBtn.TabIndex = 5
+        Me.KembaliBtn.Text = "Kembali"
+        Me.KembaliBtn.UseVisualStyleBackColor = True
         '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1279, 596)
-        Me.Controls.Add(Me.kembaliBtn)
+        Me.Controls.Add(Me.KembaliBtn)
         Me.Controls.Add(Me.labelInfo)
         Me.Controls.Add(Me.EmailText)
-        Me.Controls.Add(Me.registerBtn)
+        Me.Controls.Add(Me.RegisterBtn)
         Me.Controls.Add(Me.PasswordText)
         Me.Controls.Add(Me.UsernameText)
         Me.Name = "Register"
@@ -107,8 +107,8 @@ Partial Class Register
 
     Friend WithEvents UsernameText As TextBox
     Friend WithEvents PasswordText As MaskedTextBox
-    Friend WithEvents registerBtn As Button
+    Friend WithEvents RegisterBtn As Button
     Friend WithEvents EmailText As TextBox
     Friend WithEvents labelInfo As Label
-    Friend WithEvents kembaliBtn As Button
+    Friend WithEvents KembaliBtn As Button
 End Class

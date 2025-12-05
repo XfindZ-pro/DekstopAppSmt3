@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.WindowsApp1.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="jurnal_keuanganTableAdapter" GeneratorDataComponentClassName="jurnal_keuanganTableAdapter" Name="jurnal_keuangan" UserDataComponentName="jurnal_keuanganTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT * FROM `jurnal_keuangan`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_jurnal" DataSetColumn="id_jurnal" />
+              <Mapping SourceColumn="tanggal" DataSetColumn="tanggal" />
+              <Mapping SourceColumn="jenis_transaksi" DataSetColumn="jenis_transaksi" />
+              <Mapping SourceColumn="nominal" DataSetColumn="nominal" />
+              <Mapping SourceColumn="TipeAliran" DataSetColumn="TipeAliran" />
+              <Mapping SourceColumn="MetodeBayar" DataSetColumn="MetodeBayar" />
+              <Mapping SourceColumn="keterangan" DataSetColumn="keterangan" />
+              <Mapping SourceColumn="akunID_staff" DataSetColumn="akunID_staff" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="akunTableAdapter" GeneratorDataComponentClassName="akunTableAdapter" Name="akun" UserDataComponentName="akunTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT * FROM `akun`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="akunID" DataSetColumn="akunID" />
+              <Mapping SourceColumn="username" DataSetColumn="username" />
+              <Mapping SourceColumn="password" DataSetColumn="password" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="emoney" DataSetColumn="emoney" />
+              <Mapping SourceColumn="role" DataSetColumn="role" />
+              <Mapping SourceColumn="timestamp_update" DataSetColumn="timestamp_update" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="jurnal_keuangan" msprop:Generator_RowEvHandlerName="jurnal_keuanganRowChangeEventHandler" msprop:Generator_RowDeletedName="jurnal_keuanganRowDeleted" msprop:Generator_RowDeletingName="jurnal_keuanganRowDeleting" msprop:Generator_RowEvArgName="jurnal_keuanganRowChangeEvent" msprop:Generator_TablePropName="jurnal_keuangan" msprop:Generator_RowChangedName="jurnal_keuanganRowChanged" msprop:Generator_RowChangingName="jurnal_keuanganRowChanging" msprop:Generator_TableClassName="jurnal_keuanganDataTable" msprop:Generator_RowClassName="jurnal_keuanganRow" msprop:Generator_TableVarName="tablejurnal_keuangan" msprop:Generator_UserTableName="jurnal_keuangan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_jurnal" msprop:Generator_ColumnPropNameInRow="id_jurnal" msprop:Generator_ColumnPropNameInTable="id_jurnalColumn" msprop:Generator_ColumnVarNameInTable="columnid_jurnal" msprop:Generator_UserColumnName="id_jurnal">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tanggal" msprop:Generator_ColumnPropNameInRow="tanggal" msprop:Generator_ColumnPropNameInTable="tanggalColumn" msprop:Generator_ColumnVarNameInTable="columntanggal" msprop:Generator_UserColumnName="tanggal" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="jenis_transaksi" msprop:Generator_ColumnPropNameInRow="jenis_transaksi" msprop:Generator_ColumnPropNameInTable="jenis_transaksiColumn" msprop:Generator_ColumnVarNameInTable="columnjenis_transaksi" msprop:Generator_UserColumnName="jenis_transaksi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nominal" msprop:Generator_ColumnPropNameInRow="nominal" msprop:Generator_ColumnPropNameInTable="nominalColumn" msprop:Generator_ColumnVarNameInTable="columnnominal" msprop:Generator_UserColumnName="nominal" type="xs:long" />
+              <xs:element name="TipeAliran" msprop:Generator_ColumnPropNameInRow="TipeAliran" msprop:Generator_ColumnPropNameInTable="TipeAliranColumn" msprop:Generator_ColumnVarNameInTable="columnTipeAliran" msprop:Generator_UserColumnName="TipeAliran">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MetodeBayar" msprop:Generator_ColumnPropNameInRow="MetodeBayar" msprop:Generator_ColumnPropNameInTable="MetodeBayarColumn" msprop:Generator_ColumnVarNameInTable="columnMetodeBayar" msprop:Generator_UserColumnName="MetodeBayar">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="keterangan" msprop:Generator_ColumnPropNameInRow="keterangan" msprop:Generator_ColumnPropNameInTable="keteranganColumn" msprop:Generator_ColumnVarNameInTable="columnketerangan" msprop:Generator_UserColumnName="keterangan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="akunID_staff" msprop:Generator_ColumnPropNameInRow="akunID_staff" msprop:Generator_ColumnPropNameInTable="akunID_staffColumn" msprop:Generator_ColumnVarNameInTable="columnakunID_staff" msprop:Generator_UserColumnName="akunID_staff">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="akun" msprop:Generator_RowEvHandlerName="akunRowChangeEventHandler" msprop:Generator_RowDeletedName="akunRowDeleted" msprop:Generator_RowDeletingName="akunRowDeleting" msprop:Generator_RowEvArgName="akunRowChangeEvent" msprop:Generator_TablePropName="akun" msprop:Generator_RowChangedName="akunRowChanged" msprop:Generator_RowChangingName="akunRowChanging" msprop:Generator_TableClassName="akunDataTable" msprop:Generator_RowClassName="akunRow" msprop:Generator_TableVarName="tableakun" msprop:Generator_UserTableName="akun">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="akunID" msprop:Generator_ColumnPropNameInRow="akunID" msprop:Generator_ColumnPropNameInTable="akunIDColumn" msprop:Generator_ColumnVarNameInTable="columnakunID" msprop:Generator_UserColumnName="akunID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="username" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_UserColumnName="username">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="password" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_ColumnVarNameInTable="columnpassword" msprop:Generator_UserColumnName="password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="256" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_UserColumnName="email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="emoney" msprop:Generator_ColumnPropNameInRow="emoney" msprop:Generator_ColumnPropNameInTable="emoneyColumn" msprop:Generator_ColumnVarNameInTable="columnemoney" msprop:Generator_UserColumnName="emoney" type="xs:int" />
+              <xs:element name="role" msprop:Generator_ColumnPropNameInRow="role" msprop:Generator_ColumnPropNameInTable="roleColumn" msprop:Generator_ColumnVarNameInTable="columnrole" msprop:Generator_UserColumnName="role">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="timestamp_update" msprop:Generator_ColumnPropNameInRow="timestamp_update" msprop:Generator_ColumnPropNameInTable="timestamp_updateColumn" msprop:Generator_ColumnVarNameInTable="columntimestamp_update" msprop:Generator_UserColumnName="timestamp_update" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:jurnal_keuangan" />
+      <xs:field xpath="mstns:id_jurnal" />
+    </xs:unique>
+    <xs:unique name="akun_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:akun" />
+      <xs:field xpath="mstns:akunID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
