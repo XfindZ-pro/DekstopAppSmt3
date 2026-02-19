@@ -46,30 +46,38 @@ Partial Class ManageKategori
         'DBstatus
         '
         Me.DBstatus.AutoSize = True
-        Me.DBstatus.Location = New System.Drawing.Point(1218, 23)
+        Me.DBstatus.BackColor = System.Drawing.Color.Transparent
+        Me.DBstatus.Font = New System.Drawing.Font("Montserrat SemiBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DBstatus.ForeColor = System.Drawing.Color.White
+        Me.DBstatus.Location = New System.Drawing.Point(1061, 23)
         Me.DBstatus.Name = "DBstatus"
-        Me.DBstatus.Size = New System.Drawing.Size(67, 16)
+        Me.DBstatus.Size = New System.Drawing.Size(111, 31)
         Me.DBstatus.TabIndex = 21
         Me.DBstatus.Text = "Database"
         '
         'TextNamaKategori
         '
-        Me.TextNamaKategori.Location = New System.Drawing.Point(252, 103)
+        Me.TextNamaKategori.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextNamaKategori.Location = New System.Drawing.Point(312, 103)
         Me.TextNamaKategori.Name = "TextNamaKategori"
-        Me.TextNamaKategori.Size = New System.Drawing.Size(223, 22)
+        Me.TextNamaKategori.Size = New System.Drawing.Size(223, 32)
         Me.TextNamaKategori.TabIndex = 25
         '
         'TextIDKategori
         '
-        Me.TextIDKategori.Location = New System.Drawing.Point(252, 64)
+        Me.TextIDKategori.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextIDKategori.Location = New System.Drawing.Point(312, 55)
         Me.TextIDKategori.Name = "TextIDKategori"
         Me.TextIDKategori.ReadOnly = True
-        Me.TextIDKategori.Size = New System.Drawing.Size(223, 22)
+        Me.TextIDKategori.Size = New System.Drawing.Size(223, 32)
         Me.TextIDKategori.TabIndex = 24
         '
         'LabelNama
         '
-        Me.LabelNama.Location = New System.Drawing.Point(108, 111)
+        Me.LabelNama.BackColor = System.Drawing.Color.Transparent
+        Me.LabelNama.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelNama.ForeColor = System.Drawing.Color.White
+        Me.LabelNama.Location = New System.Drawing.Point(105, 102)
         Me.LabelNama.Name = "LabelNama"
         Me.LabelNama.Size = New System.Drawing.Size(180, 33)
         Me.LabelNama.TabIndex = 23
@@ -77,7 +85,10 @@ Partial Class ManageKategori
         '
         'LabelID
         '
-        Me.LabelID.Location = New System.Drawing.Point(108, 67)
+        Me.LabelID.BackColor = System.Drawing.Color.Transparent
+        Me.LabelID.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelID.ForeColor = System.Drawing.Color.White
+        Me.LabelID.Location = New System.Drawing.Point(105, 58)
         Me.LabelID.Name = "LabelID"
         Me.LabelID.Size = New System.Drawing.Size(180, 33)
         Me.LabelID.TabIndex = 22
@@ -85,7 +96,10 @@ Partial Class ManageKategori
         '
         'LabelDeskripsi
         '
-        Me.LabelDeskripsi.Location = New System.Drawing.Point(108, 155)
+        Me.LabelDeskripsi.BackColor = System.Drawing.Color.Transparent
+        Me.LabelDeskripsi.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelDeskripsi.ForeColor = System.Drawing.Color.White
+        Me.LabelDeskripsi.Location = New System.Drawing.Point(105, 146)
         Me.LabelDeskripsi.Name = "LabelDeskripsi"
         Me.LabelDeskripsi.Size = New System.Drawing.Size(180, 33)
         Me.LabelDeskripsi.TabIndex = 26
@@ -93,7 +107,8 @@ Partial Class ManageKategori
         '
         'TextDeskripsiKategori
         '
-        Me.TextDeskripsiKategori.Location = New System.Drawing.Point(252, 147)
+        Me.TextDeskripsiKategori.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextDeskripsiKategori.Location = New System.Drawing.Point(312, 146)
         Me.TextDeskripsiKategori.Name = "TextDeskripsiKategori"
         Me.TextDeskripsiKategori.Size = New System.Drawing.Size(223, 96)
         Me.TextDeskripsiKategori.TabIndex = 28
@@ -101,49 +116,58 @@ Partial Class ManageKategori
         '
         'BtnHapus
         '
-        Me.BtnHapus.Location = New System.Drawing.Point(997, 108)
+        Me.BtnHapus.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnHapus.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnHapus.Location = New System.Drawing.Point(907, 22)
         Me.BtnHapus.Name = "BtnHapus"
-        Me.BtnHapus.Size = New System.Drawing.Size(75, 23)
+        Me.BtnHapus.Size = New System.Drawing.Size(102, 49)
         Me.BtnHapus.TabIndex = 32
         Me.BtnHapus.Text = "Hapus"
         Me.BtnHapus.UseVisualStyleBackColor = True
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(887, 108)
+        Me.BtnSimpan.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSimpan.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnSimpan.Location = New System.Drawing.Point(788, 23)
         Me.BtnSimpan.Name = "BtnSimpan"
-        Me.BtnSimpan.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSimpan.Size = New System.Drawing.Size(102, 49)
         Me.BtnSimpan.TabIndex = 31
         Me.BtnSimpan.Text = "Simpan"
         Me.BtnSimpan.UseVisualStyleBackColor = True
         '
         'BtnUbah
         '
-        Me.BtnUbah.Location = New System.Drawing.Point(775, 108)
+        Me.BtnUbah.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUbah.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnUbah.Location = New System.Drawing.Point(671, 23)
         Me.BtnUbah.Name = "BtnUbah"
-        Me.BtnUbah.Size = New System.Drawing.Size(75, 23)
+        Me.BtnUbah.Size = New System.Drawing.Size(102, 49)
         Me.BtnUbah.TabIndex = 30
         Me.BtnUbah.Text = "Ubah"
         Me.BtnUbah.UseVisualStyleBackColor = True
         '
         'BtnBaru
         '
-        Me.BtnBaru.Location = New System.Drawing.Point(658, 108)
+        Me.BtnBaru.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBaru.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnBaru.Location = New System.Drawing.Point(552, 23)
         Me.BtnBaru.Name = "BtnBaru"
-        Me.BtnBaru.Size = New System.Drawing.Size(75, 23)
+        Me.BtnBaru.Size = New System.Drawing.Size(102, 49)
         Me.BtnBaru.TabIndex = 29
         Me.BtnBaru.Text = "Baru"
         Me.BtnBaru.UseVisualStyleBackColor = True
         '
         'PanelDataKategori
         '
+        Me.PanelDataKategori.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.PanelDataKategori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PanelDataKategori.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nama, Me.Deskripsi})
-        Me.PanelDataKategori.Location = New System.Drawing.Point(13, 269)
+        Me.PanelDataKategori.Location = New System.Drawing.Point(38, 269)
         Me.PanelDataKategori.Name = "PanelDataKategori"
         Me.PanelDataKategori.RowHeadersWidth = 51
         Me.PanelDataKategori.RowTemplate.Height = 24
-        Me.PanelDataKategori.Size = New System.Drawing.Size(1375, 267)
+        Me.PanelDataKategori.Size = New System.Drawing.Size(1173, 267)
         Me.PanelDataKategori.TabIndex = 33
         '
         'Id
@@ -151,24 +175,23 @@ Partial Class ManageKategori
         Me.Id.HeaderText = "ID Kategori"
         Me.Id.MinimumWidth = 6
         Me.Id.Name = "Id"
-        Me.Id.Width = 125
         '
         'Nama
         '
         Me.Nama.HeaderText = "Nama Kategori"
         Me.Nama.MinimumWidth = 6
         Me.Nama.Name = "Nama"
-        Me.Nama.Width = 125
         '
         'Deskripsi
         '
         Me.Deskripsi.HeaderText = "Deskripsi Kategori"
         Me.Deskripsi.MinimumWidth = 6
         Me.Deskripsi.Name = "Deskripsi"
-        Me.Deskripsi.Width = 125
         '
         'KembaliBtn
         '
+        Me.KembaliBtn.Font = New System.Drawing.Font("Montserrat", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KembaliBtn.ForeColor = System.Drawing.Color.SteelBlue
         Me.KembaliBtn.Location = New System.Drawing.Point(74, 15)
         Me.KembaliBtn.Name = "KembaliBtn"
         Me.KembaliBtn.Size = New System.Drawing.Size(133, 32)
@@ -178,25 +201,29 @@ Partial Class ManageKategori
         '
         'TextPencarian
         '
-        Me.TextPencarian.Location = New System.Drawing.Point(691, 223)
+        Me.TextPencarian.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextPencarian.Location = New System.Drawing.Point(705, 193)
         Me.TextPencarian.Name = "TextPencarian"
-        Me.TextPencarian.Size = New System.Drawing.Size(281, 22)
+        Me.TextPencarian.Size = New System.Drawing.Size(281, 32)
         Me.TextPencarian.TabIndex = 35
         '
         'LabelCariKategori
         '
         Me.LabelCariKategori.AutoSize = True
-        Me.LabelCariKategori.Location = New System.Drawing.Point(588, 226)
+        Me.LabelCariKategori.BackColor = System.Drawing.Color.Transparent
+        Me.LabelCariKategori.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCariKategori.ForeColor = System.Drawing.Color.White
+        Me.LabelCariKategori.Location = New System.Drawing.Point(564, 193)
         Me.LabelCariKategori.Name = "LabelCariKategori"
-        Me.LabelCariKategori.Size = New System.Drawing.Size(87, 16)
+        Me.LabelCariKategori.Size = New System.Drawing.Size(148, 31)
         Me.LabelCariKategori.TabIndex = 36
         Me.LabelCariKategori.Text = "Cari Kategori:"
         '
         'ManageKategori
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1400, 548)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.gugli
+        Me.ClientSize = New System.Drawing.Size(1221, 545)
         Me.Controls.Add(Me.LabelCariKategori)
         Me.Controls.Add(Me.TextPencarian)
         Me.Controls.Add(Me.KembaliBtn)

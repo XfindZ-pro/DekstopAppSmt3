@@ -161,24 +161,23 @@ Public Class Keuangan
         End Try
     End Sub
 
-    ''' <summary>
+
     ''' Event ini dipicu ketika nilai NumericHalaman diubah (diklik)
-    ''' </summary>
+
     Private Sub NumericHalaman_ValueChanged(sender As Object, e As EventArgs) Handles NumericHalaman.ValueChanged
         If CInt(NumericHalaman.Value) <> currentPage Then
             LoadJurnalData(CInt(NumericHalaman.Value))
         End If
     End Sub
 
-    ''' <summary>
-    ''' **[PERBAIKAN]**
+
     ''' Tombol untuk menghitung ulang total emoney dari SEMUA akun,
     ''' mengupdatenya ke tabel ekonomi, dan me-refresh semua label.
-    ''' </summary>
+
     Private Sub BtnSinkron_Click(sender As Object, e As EventArgs) Handles BtnSinkron.Click
         Dim calculatedTotalEmoney As Decimal = 0
 
-        ' --- FIX DI SINI: Hapus "= Nothing". Biarkan deklarasi saja. ---
+
         Dim conn As MySqlConnection
         Dim transaction As MySqlTransaction = Nothing
 
@@ -231,20 +230,5 @@ Public Class Keuangan
         Me.Hide()
     End Sub
 
-    ' --- Event Handler Kosong ---
-    Private Sub LabelHalaman_Click(sender As Object, e As EventArgs) Handles LabelHalaman.Click
-    End Sub
-    Private Sub DataGridKeuangan_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridKeuangan.CellContentClick
-    End Sub
-    Private Sub LabelSaldoBank_Click(sender As Object, e As EventArgs) Handles LabelSaldoBank.Click
-    End Sub
-    Private Sub LabelSaldoCash_Click(sender As Object, e As EventArgs) Handles LabelSaldoCash.Click
-    End Sub
-    Private Sub LabelTotalSaldoEmoney_Click(sender As Object, e As EventArgs) Handles LabelTotalSaldoEmoney.Click
-    End Sub
-    Private Sub LabelTotalPemasukkan_Click(sender As Object, e As EventArgs) Handles LabelTotalPemasukkan.Click
-    End Sub
-    Private Sub LabelTotalPengeluaran_Click(sender As Object, e As EventArgs) Handles LabelTotalPengeluaran.Click
-    End Sub
 
 End Class

@@ -40,24 +40,27 @@ Partial Class LaporanKeuangan
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(41, 44)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.ReportSource = "C:\Users\findo\source\repos\WindowsApp1\WindowsApp1\ReportKeuangan.rpt"
+        Me.CrystalReportViewer1.ReportSource = "D:\Kuliah\SEMESTER 3\Pemrograman Desktop\WindowsApp1\WindowsApp1\ReportKeuangan.r" &
+    "pt"
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1192, 450)
         Me.CrystalReportViewer1.TabIndex = 0
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'BtnKembali
         '
-        Me.BtnKembali.Location = New System.Drawing.Point(12, 12)
+        Me.BtnKembali.Font = New System.Drawing.Font("Montserrat", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnKembali.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnKembali.Location = New System.Drawing.Point(12, 3)
         Me.BtnKembali.Name = "BtnKembali"
-        Me.BtnKembali.Size = New System.Drawing.Size(75, 23)
+        Me.BtnKembali.Size = New System.Drawing.Size(125, 35)
         Me.BtnKembali.TabIndex = 2
         Me.BtnKembali.Text = "Kembali"
         Me.BtnKembali.UseVisualStyleBackColor = True
         '
         'LaporanKeuangan
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.aksieii
         Me.ClientSize = New System.Drawing.Size(1272, 522)
         Me.Controls.Add(Me.BtnKembali)
         Me.Controls.Add(Me.CrystalReportViewer1)

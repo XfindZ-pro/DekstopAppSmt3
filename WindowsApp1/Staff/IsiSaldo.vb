@@ -1,6 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports System.Windows.Forms
-Imports System.IO
+
 
 Public Class IsiSaldo
 
@@ -13,88 +12,6 @@ Public Class IsiSaldo
     ' Variabel untuk menyimpan username member yang dipilih
     Private selectedMemberUsername As String = ""
 
-#Region "Form Load & Setup"
-
-    Private Sub IsiSaldo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            LoadMemberAutoComplete()
-            PictureBoxPembayaran.Visible = False ' Sembunyikan QR di awal
-            ' Atur status default form
-            RadioButtonQris.Checked = False
-            ComboBoxNama.DropDownStyle = ComboBoxStyle.DropDown
-            ComboBoxNama.AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            ComboBoxNama.AutoCompleteSource = AutoCompleteSource.CustomSource
-            BtnBayar.Text = "Bayar" ' Teks tombol awal
-            isConfirming = False
-        Catch ex As Exception
-            MessageBox.Show("Error saat memuat form: " & ex.Message, "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
-    ' Memuat username member untuk AutoComplete
-    Private Sub LoadMemberAutoComplete()
-        Dim autoCompleteCollection As New AutoCompleteStringCollection()
-        Try
-            DB.Koneksi()
-            Dim query As String = "SELECT username FROM akun WHERE role = 'user' OR role = 'staff'"
-            Cmd = New MySqlCommand(query, DB.Connection)
-            Rd = Cmd.ExecuteReader()
-            While Rd.Read()
-                autoCompleteCollection.Add(Rd("username").ToString())
-            End While
-        Catch ex As Exception
-            MessageBox.Show("Gagal memuat daftar member: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            If Rd IsNot Nothing AndAlso Not Rd.IsClosed Then Rd.Close()
-            If DB.Connection IsNot Nothing AndAlso DB.Connection.State = ConnectionState.Open Then
-                DB.CloseConnection()
-            End If
-        End Try
-        ' Terapkan koleksi ke ComboBox
-        ComboBoxNama.AutoCompleteCustomSource = autoCompleteCollection
-    End Sub
-
-#End Region
-
-#Region "Form Navigation & Closing"
-
-    ' Jangan keluar dari seluruh aplikasi saat form ini ditutup
-    Private Sub IsiSaldo_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Application.Exit()
-    End Sub
-
-    ' Tombol untuk kembali ke Dashboard
-    Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
-        If isConfirming Then
-            ResetForm() ' Batalkan mode konfirmasi jika ada
-        End If
-        Dim dashboardForm As New Dashboard()
-        dashboardForm.Show()
-        Me.Hide() ' Sembunyikan form ini
-    End Sub
-
-#End Region
-
-#Region "Input Handling & Payment Logic"
-
-    ' Event untuk ComboBox (bisa dibiarkan kosong)
-    Private Sub ComboBoxNama_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxNama.SelectedIndexChanged
-    End Sub
-
-    ' Event untuk NumericUpDown (bisa dibiarkan kosong)
-    Private Sub NumericIsiSaldo_ValueChanged(sender As Object, e As EventArgs) Handles NumericIsiSaldo.ValueChanged
-    End Sub
-
-    ' Menampilkan/Sembunyikan QR Code saat RadioButton Qris berubah
-    Private Sub RadioButtonQris_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonQris.CheckedChanged
-        If RadioButtonQris.Checked Then
-            PictureBoxPembayaran.Visible = True
-        Else
-            PictureBoxPembayaran.Visible = False
-        End If
-    End Sub
-
-    ' Logika 2 langkah untuk tombol Bayar/Konfirmasi
     Private Sub BtnBayar_Click(sender As Object, e As EventArgs) Handles BtnBayar.Click
         Dim amount As Decimal = NumericIsiSaldo.Value
         Dim memberUsername As String = ComboBoxNama.Text.Trim()
@@ -141,7 +58,7 @@ Public Class IsiSaldo
                 ' Kolom: id_jurnal, jenis_transaksi, nominal, TipeAliran, MetodeBayar, keterangan, akunID_staff
                 Dim idJurnal As String = "JRNL-" & DateTime.Now.ToString("yyyyMMddHHmmss")
                 Dim queryJurnal As String = "INSERT INTO jurnal_keuangan (id_jurnal, jenis_transaksi, nominal, TipeAliran, MetodeBayar, keterangan, akunID_staff) " &
-                                            "VALUES (@idJurnal, @jenis, @nominal, @TipeAliran, @MetodeBayar, @keterangan, @akunIdStaff)"
+                                         "VALUES (@idJurnal, @jenis, @nominal, @TipeAliran, @MetodeBayar, @keterangan, @akunIdStaff)"
                 Using cmdJurnal As New MySqlCommand(queryJurnal, conn, sqlTransaction)
                     cmdJurnal.Parameters.AddWithValue("@idJurnal", idJurnal)
                     cmdJurnal.Parameters.AddWithValue("@jenis", "ISI SALDO") ' Jenis transaksi
@@ -220,7 +137,6 @@ Public Class IsiSaldo
         End If
     End Sub
 
-    ' Fungsi helper untuk mengembalikan form ke status awal
     Private Sub ResetForm()
         isConfirming = False
         selectedMemberUsername = ""
@@ -234,14 +150,12 @@ Public Class IsiSaldo
         RadioButtonQris.Enabled = True
     End Sub
 
-#End Region
-
-#Region "Unused Event Handlers"
-
-    Private Sub PictureBoxPembayaran_Click(sender As Object, e As EventArgs) Handles PictureBoxPembayaran.Click
-        ' Event ini ada, bisa diisi nanti jika perlu
+    Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
+        If isConfirming Then
+            ResetForm() ' Batalkan mode konfirmasi jika ada
+        End If
+        Dim dashboardForm As New Dashboard()
+        dashboardForm.Show()
+        Me.Hide() ' Sembunyikan form ini
     End Sub
-
-#End Region
-
 End Class

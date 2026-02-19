@@ -224,9 +224,7 @@ Public Class AturKas
         End Try
     End Function
 
-    ''' <summary>
     ''' Fungsi Transaksi Generic untuk menangani Kirim/Tarik/Deposit
-    ''' </summary>
     Private Sub ExecuteTransaction(queryEkonomi As String, queryAkun As String, jenisTrans As String, nominal As Integer, targetUser As String, isTunai As Boolean)
         Dim conn As MySqlConnection
         Dim trans As MySqlTransaction = Nothing
@@ -281,5 +279,11 @@ Public Class AturKas
         End Try
     End Sub
 
+    Private Sub Labelnote_Click(sender As Object, e As EventArgs) Handles Labelnote.Click
 
+    End Sub
+
+    Private Sub LabelAturKas_Click(sender As Object, e As EventArgs) Handles LabelAturKas.Click
+
+    End Sub
 End Class

@@ -49,9 +49,6 @@ Public Class ManageStock
         TextBoxNama.ForeColor = Color.Gray
     End Sub
 
-    ' ------------------------------------------
-    '  [PERBAIKAN IDE1006] Nama Event Handler mengikuti nama variabel timer
-    ' ------------------------------------------
     Private Sub SaldoTimer_Tick(sender As Object, e As EventArgs) Handles SaldoTimer.Tick
         UpdateLabelUang()
     End Sub
@@ -61,7 +58,6 @@ Public Class ManageStock
     ' ------------------------------------------
     Private Sub UpdateLabelUang()
         RefreshSaldoEkonomi()
-        ' [PERBAIKAN IDE0071] Interpolasi string yang lebih bersih
         LabelUang.Text = $"Kas: Rp {currentSaldoCash:N0} | Bank: Rp {currentSaldoBank:N0}"
     End Sub
 
@@ -323,4 +319,5 @@ Public Class ManageStock
     Private Sub LabelUang_Click(sender As Object, e As EventArgs) Handles LabelUang.Click
         UpdateLabelUang()
     End Sub
+
 End Class

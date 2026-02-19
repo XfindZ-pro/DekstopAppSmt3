@@ -39,77 +39,94 @@ Partial Class IsiSaldo
         'LabelMasukkanNama
         '
         Me.LabelMasukkanNama.AutoSize = True
-        Me.LabelMasukkanNama.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelMasukkanNama.Location = New System.Drawing.Point(135, 92)
+        Me.LabelMasukkanNama.BackColor = System.Drawing.Color.Transparent
+        Me.LabelMasukkanNama.Font = New System.Drawing.Font("Montserrat SemiBold", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMasukkanNama.ForeColor = System.Drawing.Color.White
+        Me.LabelMasukkanNama.Location = New System.Drawing.Point(12, 105)
         Me.LabelMasukkanNama.Name = "LabelMasukkanNama"
-        Me.LabelMasukkanNama.Size = New System.Drawing.Size(204, 20)
+        Me.LabelMasukkanNama.Size = New System.Drawing.Size(328, 36)
         Me.LabelMasukkanNama.TabIndex = 0
         Me.LabelMasukkanNama.Text = "Masukkan Nama Member:"
         '
         'LabelIsiBerapa
         '
         Me.LabelIsiBerapa.AutoSize = True
-        Me.LabelIsiBerapa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelIsiBerapa.Location = New System.Drawing.Point(135, 148)
+        Me.LabelIsiBerapa.BackColor = System.Drawing.Color.Transparent
+        Me.LabelIsiBerapa.Font = New System.Drawing.Font("Montserrat SemiBold", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelIsiBerapa.ForeColor = System.Drawing.Color.White
+        Me.LabelIsiBerapa.Location = New System.Drawing.Point(12, 221)
         Me.LabelIsiBerapa.Name = "LabelIsiBerapa"
-        Me.LabelIsiBerapa.Size = New System.Drawing.Size(94, 20)
+        Me.LabelIsiBerapa.Size = New System.Drawing.Size(143, 36)
         Me.LabelIsiBerapa.TabIndex = 1
         Me.LabelIsiBerapa.Text = "Isi Berapa?"
         '
         'NumericIsiSaldo
         '
-        Me.NumericIsiSaldo.Location = New System.Drawing.Point(391, 145)
+        Me.NumericIsiSaldo.Font = New System.Drawing.Font("Montserrat Medium", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericIsiSaldo.Location = New System.Drawing.Point(279, 232)
         Me.NumericIsiSaldo.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         Me.NumericIsiSaldo.Name = "NumericIsiSaldo"
-        Me.NumericIsiSaldo.Size = New System.Drawing.Size(120, 22)
+        Me.NumericIsiSaldo.Size = New System.Drawing.Size(120, 36)
         Me.NumericIsiSaldo.TabIndex = 2
         '
         'ComboBoxNama
         '
+        Me.ComboBoxNama.Font = New System.Drawing.Font("Montserrat Medium", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBoxNama.FormattingEnabled = True
-        Me.ComboBoxNama.Location = New System.Drawing.Point(391, 92)
+        Me.ComboBoxNama.Location = New System.Drawing.Point(336, 104)
         Me.ComboBoxNama.Name = "ComboBoxNama"
-        Me.ComboBoxNama.Size = New System.Drawing.Size(253, 24)
+        Me.ComboBoxNama.Size = New System.Drawing.Size(265, 44)
         Me.ComboBoxNama.TabIndex = 3
         '
         'LabelMetodePembayaran
         '
         Me.LabelMetodePembayaran.AutoSize = True
-        Me.LabelMetodePembayaran.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelMetodePembayaran.Location = New System.Drawing.Point(135, 206)
+        Me.LabelMetodePembayaran.BackColor = System.Drawing.Color.Transparent
+        Me.LabelMetodePembayaran.Font = New System.Drawing.Font("Montserrat SemiBold", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMetodePembayaran.ForeColor = System.Drawing.Color.White
+        Me.LabelMetodePembayaran.Location = New System.Drawing.Point(15, 345)
         Me.LabelMetodePembayaran.Name = "LabelMetodePembayaran"
-        Me.LabelMetodePembayaran.Size = New System.Drawing.Size(167, 20)
+        Me.LabelMetodePembayaran.Size = New System.Drawing.Size(268, 36)
         Me.LabelMetodePembayaran.TabIndex = 4
         Me.LabelMetodePembayaran.Text = "Metode Pembayaran:"
         '
         'RadioButtonQris
         '
         Me.RadioButtonQris.AutoSize = True
-        Me.RadioButtonQris.Location = New System.Drawing.Point(391, 205)
+        Me.RadioButtonQris.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButtonQris.Font = New System.Drawing.Font("Montserrat Medium", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButtonQris.ForeColor = System.Drawing.Color.White
+        Me.RadioButtonQris.Location = New System.Drawing.Point(317, 343)
         Me.RadioButtonQris.Name = "RadioButtonQris"
-        Me.RadioButtonQris.Size = New System.Drawing.Size(52, 20)
+        Me.RadioButtonQris.Size = New System.Drawing.Size(82, 40)
         Me.RadioButtonQris.TabIndex = 5
         Me.RadioButtonQris.TabStop = True
         Me.RadioButtonQris.Text = "Qris"
-        Me.RadioButtonQris.UseVisualStyleBackColor = True
+        Me.RadioButtonQris.UseVisualStyleBackColor = False
         '
         'BtnBayar
         '
-        Me.BtnBayar.Location = New System.Drawing.Point(556, 202)
+        Me.BtnBayar.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnBayar.Font = New System.Drawing.Font("Montserrat Medium", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBayar.ForeColor = System.Drawing.Color.White
+        Me.BtnBayar.Location = New System.Drawing.Point(187, 429)
         Me.BtnBayar.Name = "BtnBayar"
-        Me.BtnBayar.Size = New System.Drawing.Size(152, 23)
+        Me.BtnBayar.Size = New System.Drawing.Size(212, 61)
         Me.BtnBayar.TabIndex = 7
         Me.BtnBayar.Text = "Bayar"
-        Me.BtnBayar.UseVisualStyleBackColor = True
+        Me.BtnBayar.UseVisualStyleBackColor = False
         '
         'BtnKembali
         '
-        Me.BtnKembali.Location = New System.Drawing.Point(49, 24)
+        Me.BtnKembali.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.BtnKembali.Font = New System.Drawing.Font("Montserrat SemiBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnKembali.ForeColor = System.Drawing.Color.White
+        Me.BtnKembali.Location = New System.Drawing.Point(12, 24)
         Me.BtnKembali.Name = "BtnKembali"
-        Me.BtnKembali.Size = New System.Drawing.Size(75, 23)
+        Me.BtnKembali.Size = New System.Drawing.Size(163, 51)
         Me.BtnKembali.TabIndex = 8
         Me.BtnKembali.Text = "Kembali"
-        Me.BtnKembali.UseVisualStyleBackColor = True
+        Me.BtnKembali.UseVisualStyleBackColor = False
         '
         'PictureBoxPembayaran
         '
@@ -122,8 +139,8 @@ Partial Class IsiSaldo
         '
         'IsiSaldo
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1232, 530)
         Me.Controls.Add(Me.PictureBoxPembayaran)
         Me.Controls.Add(Me.BtnKembali)

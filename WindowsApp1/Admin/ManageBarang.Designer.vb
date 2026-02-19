@@ -72,7 +72,10 @@ Partial Class ManageBarang
         '
         'LabelID
         '
-        Me.LabelID.Location = New System.Drawing.Point(28, 48)
+        Me.LabelID.BackColor = System.Drawing.Color.Transparent
+        Me.LabelID.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelID.ForeColor = System.Drawing.Color.White
+        Me.LabelID.Location = New System.Drawing.Point(46, 47)
         Me.LabelID.Name = "LabelID"
         Me.LabelID.Size = New System.Drawing.Size(180, 33)
         Me.LabelID.TabIndex = 0
@@ -80,7 +83,10 @@ Partial Class ManageBarang
         '
         'LabelNama
         '
-        Me.LabelNama.Location = New System.Drawing.Point(28, 92)
+        Me.LabelNama.BackColor = System.Drawing.Color.Transparent
+        Me.LabelNama.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelNama.ForeColor = System.Drawing.Color.White
+        Me.LabelNama.Location = New System.Drawing.Point(46, 91)
         Me.LabelNama.Name = "LabelNama"
         Me.LabelNama.Size = New System.Drawing.Size(180, 33)
         Me.LabelNama.TabIndex = 1
@@ -88,7 +94,10 @@ Partial Class ManageBarang
         '
         'LabelKategori
         '
-        Me.LabelKategori.Location = New System.Drawing.Point(28, 135)
+        Me.LabelKategori.BackColor = System.Drawing.Color.Transparent
+        Me.LabelKategori.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelKategori.ForeColor = System.Drawing.Color.White
+        Me.LabelKategori.Location = New System.Drawing.Point(46, 134)
         Me.LabelKategori.Name = "LabelKategori"
         Me.LabelKategori.Size = New System.Drawing.Size(180, 33)
         Me.LabelKategori.TabIndex = 2
@@ -96,7 +105,10 @@ Partial Class ManageBarang
         '
         'LabelSatuan
         '
-        Me.LabelSatuan.Location = New System.Drawing.Point(28, 230)
+        Me.LabelSatuan.BackColor = System.Drawing.Color.Transparent
+        Me.LabelSatuan.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSatuan.ForeColor = System.Drawing.Color.White
+        Me.LabelSatuan.Location = New System.Drawing.Point(46, 229)
         Me.LabelSatuan.Name = "LabelSatuan"
         Me.LabelSatuan.Size = New System.Drawing.Size(180, 33)
         Me.LabelSatuan.TabIndex = 3
@@ -104,7 +116,10 @@ Partial Class ManageBarang
         '
         'LabelHargaBeli
         '
-        Me.LabelHargaBeli.Location = New System.Drawing.Point(620, 48)
+        Me.LabelHargaBeli.BackColor = System.Drawing.Color.Transparent
+        Me.LabelHargaBeli.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHargaBeli.ForeColor = System.Drawing.Color.White
+        Me.LabelHargaBeli.Location = New System.Drawing.Point(486, 41)
         Me.LabelHargaBeli.Name = "LabelHargaBeli"
         Me.LabelHargaBeli.Size = New System.Drawing.Size(180, 33)
         Me.LabelHargaBeli.TabIndex = 4
@@ -112,7 +127,10 @@ Partial Class ManageBarang
         '
         'LabelHargaJual
         '
-        Me.LabelHargaJual.Location = New System.Drawing.Point(620, 92)
+        Me.LabelHargaJual.BackColor = System.Drawing.Color.Transparent
+        Me.LabelHargaJual.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelHargaJual.ForeColor = System.Drawing.Color.White
+        Me.LabelHargaJual.Location = New System.Drawing.Point(486, 87)
         Me.LabelHargaJual.Name = "LabelHargaJual"
         Me.LabelHargaJual.Size = New System.Drawing.Size(180, 33)
         Me.LabelHargaJual.TabIndex = 5
@@ -120,7 +138,10 @@ Partial Class ManageBarang
         '
         'LabelStock
         '
-        Me.LabelStock.Location = New System.Drawing.Point(620, 125)
+        Me.LabelStock.BackColor = System.Drawing.Color.Transparent
+        Me.LabelStock.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelStock.ForeColor = System.Drawing.Color.White
+        Me.LabelStock.Location = New System.Drawing.Point(486, 135)
         Me.LabelStock.Name = "LabelStock"
         Me.LabelStock.Size = New System.Drawing.Size(180, 33)
         Me.LabelStock.TabIndex = 6
@@ -128,43 +149,51 @@ Partial Class ManageBarang
         '
         'BtnBaru
         '
-        Me.BtnBaru.Location = New System.Drawing.Point(623, 205)
+        Me.BtnBaru.Font = New System.Drawing.Font("Montserrat", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBaru.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnBaru.Location = New System.Drawing.Point(562, 184)
         Me.BtnBaru.Name = "BtnBaru"
-        Me.BtnBaru.Size = New System.Drawing.Size(75, 23)
+        Me.BtnBaru.Size = New System.Drawing.Size(75, 40)
         Me.BtnBaru.TabIndex = 7
         Me.BtnBaru.Text = "Baru"
         Me.BtnBaru.UseVisualStyleBackColor = True
         '
         'BtnUbah
         '
-        Me.BtnUbah.Location = New System.Drawing.Point(740, 205)
+        Me.BtnUbah.Font = New System.Drawing.Font("Montserrat", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUbah.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnUbah.Location = New System.Drawing.Point(679, 184)
         Me.BtnUbah.Name = "BtnUbah"
-        Me.BtnUbah.Size = New System.Drawing.Size(75, 23)
+        Me.BtnUbah.Size = New System.Drawing.Size(75, 40)
         Me.BtnUbah.TabIndex = 8
         Me.BtnUbah.Text = "Ubah"
         Me.BtnUbah.UseVisualStyleBackColor = True
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(852, 205)
+        Me.BtnSimpan.Font = New System.Drawing.Font("Montserrat", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSimpan.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnSimpan.Location = New System.Drawing.Point(785, 184)
         Me.BtnSimpan.Name = "BtnSimpan"
-        Me.BtnSimpan.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSimpan.Size = New System.Drawing.Size(91, 40)
         Me.BtnSimpan.TabIndex = 9
         Me.BtnSimpan.Text = "Simpan"
         Me.BtnSimpan.UseVisualStyleBackColor = True
         '
         'BtnHapus
         '
-        Me.BtnHapus.Location = New System.Drawing.Point(962, 205)
+        Me.BtnHapus.Font = New System.Drawing.Font("Montserrat", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnHapus.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnHapus.Location = New System.Drawing.Point(901, 184)
         Me.BtnHapus.Name = "BtnHapus"
-        Me.BtnHapus.Size = New System.Drawing.Size(75, 23)
+        Me.BtnHapus.Size = New System.Drawing.Size(75, 40)
         Me.BtnHapus.TabIndex = 10
         Me.BtnHapus.Text = "Hapus"
         Me.BtnHapus.UseVisualStyleBackColor = True
         '
         'TextIDBarang
         '
-        Me.TextIDBarang.Location = New System.Drawing.Point(172, 45)
+        Me.TextIDBarang.Location = New System.Drawing.Point(247, 48)
         Me.TextIDBarang.Name = "TextIDBarang"
         Me.TextIDBarang.ReadOnly = True
         Me.TextIDBarang.Size = New System.Drawing.Size(223, 22)
@@ -172,21 +201,22 @@ Partial Class ManageBarang
         '
         'TextNamaBarang
         '
-        Me.TextNamaBarang.Location = New System.Drawing.Point(172, 84)
+        Me.TextNamaBarang.Location = New System.Drawing.Point(247, 87)
         Me.TextNamaBarang.Name = "TextNamaBarang"
         Me.TextNamaBarang.Size = New System.Drawing.Size(223, 22)
         Me.TextNamaBarang.TabIndex = 13
         '
         'TextSatuanBarang
         '
-        Me.TextSatuanBarang.Location = New System.Drawing.Point(172, 230)
+        Me.TextSatuanBarang.Location = New System.Drawing.Point(247, 233)
         Me.TextSatuanBarang.Name = "TextSatuanBarang"
         Me.TextSatuanBarang.Size = New System.Drawing.Size(223, 22)
         Me.TextSatuanBarang.TabIndex = 15
         '
         'BtnKembali
         '
-        Me.BtnKembali.Location = New System.Drawing.Point(13, 13)
+        Me.BtnKembali.Font = New System.Drawing.Font("Montserrat", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnKembali.Location = New System.Drawing.Point(12, 5)
         Me.BtnKembali.Name = "BtnKembali"
         Me.BtnKembali.Size = New System.Drawing.Size(133, 32)
         Me.BtnKembali.TabIndex = 19
@@ -196,128 +226,135 @@ Partial Class ManageBarang
         'DBstatus
         '
         Me.DBstatus.AutoSize = True
-        Me.DBstatus.Location = New System.Drawing.Point(1153, 9)
+        Me.DBstatus.BackColor = System.Drawing.Color.Transparent
+        Me.DBstatus.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DBstatus.ForeColor = System.Drawing.Color.White
+        Me.DBstatus.Location = New System.Drawing.Point(1050, 9)
         Me.DBstatus.Name = "DBstatus"
-        Me.DBstatus.Size = New System.Drawing.Size(67, 16)
+        Me.DBstatus.Size = New System.Drawing.Size(114, 31)
         Me.DBstatus.TabIndex = 20
         Me.DBstatus.Text = "Database"
         '
         'NumericHargaBeli
         '
-        Me.NumericHargaBeli.Location = New System.Drawing.Point(756, 46)
+        Me.NumericHargaBeli.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericHargaBeli.Location = New System.Drawing.Point(648, 40)
         Me.NumericHargaBeli.Maximum = New Decimal(New Integer() {10000000, 0, 0, 0})
         Me.NumericHargaBeli.Name = "NumericHargaBeli"
-        Me.NumericHargaBeli.Size = New System.Drawing.Size(120, 22)
+        Me.NumericHargaBeli.Size = New System.Drawing.Size(120, 32)
         Me.NumericHargaBeli.TabIndex = 21
         '
         'NumericHargaJual
         '
-        Me.NumericHargaJual.Location = New System.Drawing.Point(756, 90)
+        Me.NumericHargaJual.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericHargaJual.Location = New System.Drawing.Point(648, 87)
         Me.NumericHargaJual.Maximum = New Decimal(New Integer() {10000000, 0, 0, 0})
         Me.NumericHargaJual.Name = "NumericHargaJual"
-        Me.NumericHargaJual.Size = New System.Drawing.Size(120, 22)
+        Me.NumericHargaJual.Size = New System.Drawing.Size(120, 32)
         Me.NumericHargaJual.TabIndex = 22
         '
         'NumericStock
         '
-        Me.NumericStock.Location = New System.Drawing.Point(756, 128)
+        Me.NumericStock.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericStock.Location = New System.Drawing.Point(648, 135)
         Me.NumericStock.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         Me.NumericStock.Name = "NumericStock"
-        Me.NumericStock.Size = New System.Drawing.Size(120, 22)
+        Me.NumericStock.Size = New System.Drawing.Size(120, 32)
         Me.NumericStock.TabIndex = 23
         '
         'PanelDataBarang
         '
+        Me.PanelDataBarang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.PanelDataBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PanelDataBarang.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdBarang, Me.Nama, Me.Kategori, Me.Satuan, Me.HargaBeli, Me.HargaJual, Me.Stock, Me.Rak, Me.Supplier, Me.Warna, Me.Ukuran})
         Me.PanelDataBarang.Location = New System.Drawing.Point(31, 283)
         Me.PanelDataBarang.Name = "PanelDataBarang"
         Me.PanelDataBarang.RowHeadersWidth = 51
         Me.PanelDataBarang.RowTemplate.Height = 24
-        Me.PanelDataBarang.Size = New System.Drawing.Size(1297, 246)
+        Me.PanelDataBarang.Size = New System.Drawing.Size(1169, 246)
         Me.PanelDataBarang.TabIndex = 24
         '
         'IdBarang
         '
+        Me.IdBarang.FillWeight = 123.2079!
         Me.IdBarang.HeaderText = "ID Barang"
         Me.IdBarang.MinimumWidth = 6
         Me.IdBarang.Name = "IdBarang"
-        Me.IdBarang.Width = 125
         '
         'Nama
         '
+        Me.Nama.FillWeight = 116.838!
         Me.Nama.HeaderText = "Nama"
         Me.Nama.MinimumWidth = 6
         Me.Nama.Name = "Nama"
-        Me.Nama.Width = 125
         '
         'Kategori
         '
+        Me.Kategori.FillWeight = 111.1815!
         Me.Kategori.HeaderText = "Kategori"
         Me.Kategori.MinimumWidth = 6
         Me.Kategori.Name = "Kategori"
-        Me.Kategori.Width = 125
         '
         'Satuan
         '
+        Me.Satuan.FillWeight = 106.1586!
         Me.Satuan.HeaderText = "Satuan"
         Me.Satuan.MinimumWidth = 6
         Me.Satuan.Name = "Satuan"
-        Me.Satuan.Width = 125
         '
         'HargaBeli
         '
+        Me.HargaBeli.FillWeight = 101.6984!
         Me.HargaBeli.HeaderText = "Harga Beli"
         Me.HargaBeli.MinimumWidth = 6
         Me.HargaBeli.Name = "HargaBeli"
-        Me.HargaBeli.Width = 125
         '
         'HargaJual
         '
+        Me.HargaJual.FillWeight = 97.73765!
         Me.HargaJual.HeaderText = "Harga Jual"
         Me.HargaJual.MinimumWidth = 6
         Me.HargaJual.Name = "HargaJual"
-        Me.HargaJual.Width = 125
         '
         'Stock
         '
+        Me.Stock.FillWeight = 94.22057!
         Me.Stock.HeaderText = "Stock"
         Me.Stock.MinimumWidth = 6
         Me.Stock.Name = "Stock"
-        Me.Stock.Width = 125
         '
         'Rak
         '
+        Me.Rak.FillWeight = 91.09743!
         Me.Rak.HeaderText = "Rak"
         Me.Rak.MinimumWidth = 6
         Me.Rak.Name = "Rak"
-        Me.Rak.Width = 125
         '
         'Supplier
         '
+        Me.Supplier.FillWeight = 88.32411!
         Me.Supplier.HeaderText = "Supplier"
         Me.Supplier.MinimumWidth = 6
         Me.Supplier.Name = "Supplier"
-        Me.Supplier.Width = 125
         '
         'Warna
         '
+        Me.Warna.FillWeight = 85.86142!
         Me.Warna.HeaderText = "Warna"
         Me.Warna.MinimumWidth = 6
         Me.Warna.Name = "Warna"
-        Me.Warna.Width = 125
         '
         'Ukuran
         '
+        Me.Ukuran.FillWeight = 83.67457!
         Me.Ukuran.HeaderText = "Ukuran"
         Me.Ukuran.MinimumWidth = 6
         Me.Ukuran.Name = "Ukuran"
-        Me.Ukuran.Width = 125
         '
         'kategoriBarang
         '
         Me.kategoriBarang.FormattingEnabled = True
-        Me.kategoriBarang.Location = New System.Drawing.Point(172, 135)
+        Me.kategoriBarang.Location = New System.Drawing.Point(247, 138)
         Me.kategoriBarang.Name = "kategoriBarang"
         Me.kategoriBarang.Size = New System.Drawing.Size(223, 24)
         Me.kategoriBarang.TabIndex = 25
@@ -325,14 +362,17 @@ Partial Class ManageBarang
         'rakBarang
         '
         Me.rakBarang.FormattingEnabled = True
-        Me.rakBarang.Location = New System.Drawing.Point(172, 185)
+        Me.rakBarang.Location = New System.Drawing.Point(247, 188)
         Me.rakBarang.Name = "rakBarang"
         Me.rakBarang.Size = New System.Drawing.Size(223, 24)
         Me.rakBarang.TabIndex = 28
         '
         'LabelRak
         '
-        Me.LabelRak.Location = New System.Drawing.Point(28, 185)
+        Me.LabelRak.BackColor = System.Drawing.Color.Transparent
+        Me.LabelRak.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelRak.ForeColor = System.Drawing.Color.White
+        Me.LabelRak.Location = New System.Drawing.Point(46, 184)
         Me.LabelRak.Name = "LabelRak"
         Me.LabelRak.Size = New System.Drawing.Size(180, 33)
         Me.LabelRak.TabIndex = 27
@@ -340,14 +380,18 @@ Partial Class ManageBarang
         '
         'TextSupplierBarang
         '
-        Me.TextSupplierBarang.Location = New System.Drawing.Point(1067, 48)
+        Me.TextSupplierBarang.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextSupplierBarang.Location = New System.Drawing.Point(982, 46)
         Me.TextSupplierBarang.Name = "TextSupplierBarang"
-        Me.TextSupplierBarang.Size = New System.Drawing.Size(223, 22)
+        Me.TextSupplierBarang.Size = New System.Drawing.Size(223, 32)
         Me.TextSupplierBarang.TabIndex = 30
         '
         'LabelSupplier
         '
-        Me.LabelSupplier.Location = New System.Drawing.Point(923, 48)
+        Me.LabelSupplier.BackColor = System.Drawing.Color.Transparent
+        Me.LabelSupplier.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSupplier.ForeColor = System.Drawing.Color.White
+        Me.LabelSupplier.Location = New System.Drawing.Point(796, 45)
         Me.LabelSupplier.Name = "LabelSupplier"
         Me.LabelSupplier.Size = New System.Drawing.Size(180, 33)
         Me.LabelSupplier.TabIndex = 29
@@ -355,7 +399,10 @@ Partial Class ManageBarang
         '
         'LabelWarnaBarang
         '
-        Me.LabelWarnaBarang.Location = New System.Drawing.Point(923, 84)
+        Me.LabelWarnaBarang.BackColor = System.Drawing.Color.Transparent
+        Me.LabelWarnaBarang.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelWarnaBarang.ForeColor = System.Drawing.Color.White
+        Me.LabelWarnaBarang.Location = New System.Drawing.Point(796, 91)
         Me.LabelWarnaBarang.Name = "LabelWarnaBarang"
         Me.LabelWarnaBarang.Size = New System.Drawing.Size(114, 33)
         Me.LabelWarnaBarang.TabIndex = 31
@@ -363,14 +410,18 @@ Partial Class ManageBarang
         '
         'TextWarnaBarang
         '
-        Me.TextWarnaBarang.Location = New System.Drawing.Point(1067, 84)
+        Me.TextWarnaBarang.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextWarnaBarang.Location = New System.Drawing.Point(982, 92)
         Me.TextWarnaBarang.Name = "TextWarnaBarang"
-        Me.TextWarnaBarang.Size = New System.Drawing.Size(223, 22)
+        Me.TextWarnaBarang.Size = New System.Drawing.Size(223, 32)
         Me.TextWarnaBarang.TabIndex = 32
         '
         'LabelUkuranBarang
         '
-        Me.LabelUkuranBarang.Location = New System.Drawing.Point(923, 117)
+        Me.LabelUkuranBarang.BackColor = System.Drawing.Color.Transparent
+        Me.LabelUkuranBarang.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelUkuranBarang.ForeColor = System.Drawing.Color.White
+        Me.LabelUkuranBarang.Location = New System.Drawing.Point(796, 138)
         Me.LabelUkuranBarang.Name = "LabelUkuranBarang"
         Me.LabelUkuranBarang.Size = New System.Drawing.Size(114, 33)
         Me.LabelUkuranBarang.TabIndex = 33
@@ -378,9 +429,10 @@ Partial Class ManageBarang
         '
         'TextUkuranBarang
         '
-        Me.TextUkuranBarang.Location = New System.Drawing.Point(1067, 122)
+        Me.TextUkuranBarang.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextUkuranBarang.Location = New System.Drawing.Point(982, 138)
         Me.TextUkuranBarang.Name = "TextUkuranBarang"
-        Me.TextUkuranBarang.Size = New System.Drawing.Size(223, 22)
+        Me.TextUkuranBarang.Size = New System.Drawing.Size(223, 32)
         Me.TextUkuranBarang.TabIndex = 34
         '
         'TextPencarian
@@ -393,17 +445,20 @@ Partial Class ManageBarang
         'LabelCariBarang
         '
         Me.LabelCariBarang.AutoSize = True
-        Me.LabelCariBarang.Location = New System.Drawing.Point(517, 247)
+        Me.LabelCariBarang.BackColor = System.Drawing.Color.Transparent
+        Me.LabelCariBarang.Font = New System.Drawing.Font("Montserrat", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCariBarang.ForeColor = System.Drawing.SystemColors.Window
+        Me.LabelCariBarang.Location = New System.Drawing.Point(501, 238)
         Me.LabelCariBarang.Name = "LabelCariBarang"
-        Me.LabelCariBarang.Size = New System.Drawing.Size(81, 16)
+        Me.LabelCariBarang.Size = New System.Drawing.Size(116, 27)
         Me.LabelCariBarang.TabIndex = 36
         Me.LabelCariBarang.Text = "Cari Barang:"
         '
         'ManageBarang
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1354, 541)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.gugli
+        Me.ClientSize = New System.Drawing.Size(1217, 541)
         Me.Controls.Add(Me.LabelCariBarang)
         Me.Controls.Add(Me.TextPencarian)
         Me.Controls.Add(Me.TextUkuranBarang)

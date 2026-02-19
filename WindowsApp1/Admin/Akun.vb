@@ -233,7 +233,6 @@ Public Class Akun
 
         Try
             db.Koneksi()
-            ' **[PERBAIKAN]** Ganti 'money' menjadi 'emoney'
             ' (Asumsi password di-handle di tempat lain atau tidak diperlukan di form ini)
             Dim sql As String = "INSERT INTO akun (akunID, username, email, emoney, role, password) VALUES (@akunID, @username, @email, @emoney, @role, @password);"
 
@@ -268,7 +267,7 @@ Public Class Akun
 
         Try
             db.Koneksi()
-            ' **[PERBAIKAN]** Ganti 'money' menjadi 'emoney'
+
             ' (Tidak mengupdate emoney dari form ini, hanya data admin)
             Dim sql As String = "UPDATE akun SET username = @username, email = @email, role = @role WHERE akunID = @akunID;"
 
@@ -349,7 +348,7 @@ Public Class Akun
             TextBoxUsername.Text = row.Cells("username").Value.ToString()
             TextBoxEmail.Text = If(IsDBNull(row.Cells("email").Value), "", row.Cells("email").Value.ToString())
 
-            ' **[PERBAIKAN]** Tidak ada lagi 'emoney' di form ini untuk diedit
+
             ' NumericMoney.Value = If(IsDBNull(row.Cells("emoney").Value), 0D, Convert.ToDecimal(row.Cells("emoney").Value))
 
             ' Set combo box peran
@@ -407,5 +406,13 @@ Public Class Akun
     ' ------------------------------------------
     Private Sub TextBoxPencarian_TextChanged(sender As Object, e As EventArgs) Handles TextBoxPencarian.TextChanged
         LoadDataAkun(TextBoxPencarian.Text.Trim())
+    End Sub
+
+    Private Sub TextBoxEmail_TextChanged(sender As Object, e As EventArgs) Handles TextBoxEmail.TextChanged
+
+    End Sub
+
+    Private Sub TextBoxUsername_TextChanged(sender As Object, e As EventArgs) Handles TextBoxUsername.TextChanged
+
     End Sub
 End Class

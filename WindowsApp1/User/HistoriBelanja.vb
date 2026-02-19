@@ -163,21 +163,18 @@ Public Class HistoriBelanja
         End If
     End Sub
 
-    ''' <summary>
-    ''' Fungsi untuk membuat file PDF struk.
-    ''' **[PEMBENARAN]** Cara deklarasi font telah diubah.
-    ''' </summary>
+
     Private Sub GenerateStrukPDF(idTransaksi As String, filePath As String)
         Dim doc As New Document(PageSize.A7, 10, 10, 10, 10)
         Dim writer As PdfWriter = Nothing
 
-        ' --- [PEMBENARAN] ---
+
         ' Menggunakan font default dan mengatur propertinya secara manual
         Dim baseFont As BaseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED) ' Font dasar
         Dim headerFont As New Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.BOLD)
         Dim normalFont As New Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8)
         Dim smallFont As New Font(iTextSharp.text.Font.FontFamily.HELVETICA, 6)
-        ' --- END PEMBENARAN ---
+
 
         Try
             Dim dtHeader As New DataTable()

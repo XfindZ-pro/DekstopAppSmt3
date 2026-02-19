@@ -28,20 +28,28 @@ Public Class KonfirmasiBayar
         Me.memberAkunId = memberId
     End Sub
 
+    ' --- 1. Event Load: Setup Awal ---
     Private Sub KonfirmasiBayar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Tampilkan Informasi Label
         LblTotalBelanja.Text = "Total Belanja: Rp. " & Me.totalBelanja.ToString("N0")
         LblJumlahBayar.Text = "Jumlah Bayar: Rp. " & Me.jumlahBayar.ToString("N0")
         LblKembalian.Text = "Kembalian: Rp. " & Me.kembalian.ToString("N0")
         LblNamaPelanggan.Text = "Pelanggan: " & If(String.IsNullOrEmpty(Me.namaPelanggan) OrElse Me.namaPelanggan = "Non-Member", "-", Me.namaPelanggan)
         LblMetodeBayar.Text = "Metode Bayar: " & Me.metodeBayar
 
+        ' Atur Tombol
         BtnDownloadStruk.Visible = False
         BtnTutup.Visible = False
+        BtnKonfirmasi.Visible = True
+        BtnKembali.Visible = True
+
+        ' Siapkan Tabel & Muat Data Keranjang
+        SetupDataGridView()
+        LoadDataAwal_Keranjang()
     End Sub
 
-    ' [PERBAIKAN] Hapus Me.Dispose() di sini karena bisa menyebabkan error saat Form ditutup via ShowDialog
     Private Sub KonfirmasiBayar_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        ' Biarkan kosong atau lakukan pembersihan resource non-form jika ada
+        ' Biarkan kosong
     End Sub
 
     Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
@@ -49,9 +57,80 @@ Public Class KonfirmasiBayar
         Me.Close()
     End Sub
 
-    ''' <summary>
-    ''' EKSEKUSI TRANSAKSI KE DATABASE
-    ''' </summary>
+    ' --- 2. Manajemen Data Grid View ---
+
+    Private Sub SetupDataGridView()
+        With PanelDataInfo
+            .ReadOnly = True
+            .AllowUserToAddRows = False
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            .Columns.Clear()
+
+            .Columns.Add("Nama", "Nama Barang")
+            .Columns.Add("Harga", "Harga Satuan")
+            .Columns.Add("Qty", "Qty")
+            .Columns.Add("Subtotal", "Subtotal")
+
+            .Columns("Nama").FillWeight = 200
+            .Columns("Harga").DefaultCellStyle.Format = "N0"
+            .Columns("Harga").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            .Columns("Qty").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns("Subtotal").DefaultCellStyle.Format = "N0"
+            .Columns("Subtotal").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        End With
+    End Sub
+
+    ' [FUNGSI 1] Tampilkan data dari KERANJANG (Sebelum Konfirmasi)
+    Private Sub LoadDataAwal_Keranjang()
+        Try
+            DB.Koneksi()
+            PanelDataInfo.Rows.Clear()
+            Dim query As String = "SELECT b.Nama, (k.Harga / k.qty) AS HargaSatuan, k.qty, k.Harga AS Subtotal " &
+                                  "FROM keranjang k JOIN barang b ON k.IdBarang = b.IdBarang " &
+                                  "WHERE k.akunID = @uid"
+
+            Using cmd As New MySqlCommand(query, DB.Connection)
+                cmd.Parameters.AddWithValue("@uid", SessionManager.AkunID)
+                Using rd As MySqlDataReader = cmd.ExecuteReader()
+                    While rd.Read()
+                        PanelDataInfo.Rows.Add(rd("Nama"), rd("HargaSatuan"), rd("qty"), rd("Subtotal"))
+                    End While
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Gagal memuat detail keranjang: " & ex.Message)
+        Finally
+            DB.CloseConnection()
+        End Try
+    End Sub
+
+    ' [FUNGSI 2] Tampilkan data dari TRANSAKSI DETAIL (Setelah Konfirmasi Sukses)
+    Private Sub LoadDataAkhir_Transaksi()
+        Try
+            DB.Koneksi()
+            PanelDataInfo.Rows.Clear()
+            Dim query As String = "SELECT b.Nama, td.HargaSatuan, td.qty, td.TotalHarga AS Subtotal " &
+                                  "FROM transaksi_detail td JOIN barang b ON td.IdBarang = b.IdBarang " &
+                                  "WHERE td.IdTransaksi = @idTrans"
+
+            Using cmd As New MySqlCommand(query, DB.Connection)
+                cmd.Parameters.AddWithValue("@idTrans", Me.newIdTransaksi)
+                Using rd As MySqlDataReader = cmd.ExecuteReader()
+                    While rd.Read()
+                        PanelDataInfo.Rows.Add(rd("Nama"), rd("HargaSatuan"), rd("qty"), rd("Subtotal"))
+                    End While
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Gagal memuat detail transaksi: " & ex.Message)
+        Finally
+            DB.CloseConnection()
+        End Try
+    End Sub
+
+    ' --- 3. Logika Transaksi Utama ---
+
     Private Sub BtnKonfirmasi_Click(sender As Object, e As EventArgs) Handles BtnKonfirmasi.Click
         Me.newIdTransaksi = "TRX-" & DateTime.Now.ToString("yyyyMMdd-HHmmss")
         Dim conn As MySqlConnection
@@ -64,7 +143,7 @@ Public Class KonfirmasiBayar
 
             trans = conn.BeginTransaction()
 
-            ' --- 1. Insert Header Transaksi ---
+            ' A. Insert Header Transaksi
             Dim qHeader As String = "INSERT INTO transaksi_kasir (IdTransaksi, akunID, NamaPelanggan, memberId, MetodeBayar, TotalBelanja, Diskon, TotalAkhir, JumlahBayar, Kembalian) VALUES (@Id, @Akun, @Nama, @MemId, @Metode, @Total, 0, @Total, @Bayar, @Kembali)"
             Using cmd As New MySqlCommand(qHeader, conn, trans)
                 cmd.Parameters.AddWithValue("@Id", Me.newIdTransaksi)
@@ -78,7 +157,7 @@ Public Class KonfirmasiBayar
                 cmd.ExecuteNonQuery()
             End Using
 
-            ' --- 2. Ambil Keranjang ---
+            ' B. Ambil Item dari Keranjang
             Dim dtKeranjang As New DataTable()
             Using cmd As New MySqlCommand("SELECT IdBarang, qty, (Harga / qty) AS HargaSatuan, Harga FROM keranjang WHERE akunID = @uid", conn, trans)
                 cmd.Parameters.AddWithValue("@uid", SessionManager.AkunID)
@@ -87,7 +166,7 @@ Public Class KonfirmasiBayar
 
             If dtKeranjang.Rows.Count = 0 Then Throw New Exception("Keranjang belanja kosong.")
 
-            ' --- 3. Insert Detail & Update Stok Barang ---
+            ' C. Loop Insert Detail & Update Stok
             Dim counter As Integer = 1
             For Each row As DataRow In dtKeranjang.Rows
                 Dim idBarang As String = row("IdBarang").ToString()
@@ -117,38 +196,29 @@ Public Class KonfirmasiBayar
                 End Using
             Next
 
-            ' --- 4. Hapus Keranjang ---
+            ' D. Hapus Keranjang
             Using cmd As New MySqlCommand("DELETE FROM keranjang WHERE akunID = @uid", conn, trans)
                 cmd.Parameters.AddWithValue("@uid", SessionManager.AkunID)
                 cmd.ExecuteNonQuery()
             End Using
 
-            ' --- 5. Update Keuangan (Ekonomi & Jurnal) ---
+            ' E. Update Keuangan (AKUN KASIR & JURNAL)
             Dim idJurnal As String = "JRNL-" & DateTime.Now.ToString("yyyyMMddHHmmss")
 
             If Me.metodeBayar = "Tunai" Then
-                ' A. Validasi Uang di Brankas (Server Side Check)
-                If Me.kembalian > 0 Then
-                    Dim cashToko As Decimal = 0
-                    Using cmd As New MySqlCommand("SELECT saldo_cash FROM ekonomi WHERE id_utama = 'UTAMA' FOR UPDATE", conn, trans)
-                        Dim res = cmd.ExecuteScalar()
-                        If res IsNot Nothing Then cashToko = CDec(res)
-                    End Using
+                ' --- LOGIKA TUNAI ---
+                ' Uang masuk ke pegangan Kasir (Tabel AKUN kolom CASH)
+                ' Logika: (Cash Awal + Bayar) - Kembalian = Cash Awal + TotalBelanja
+                ' Jadi kita cukup menambahkan TotalBelanja ke cash kasir.
 
-                    ' Jika saldo fisik toko kurang dari kembalian, throw error
-                    If cashToko < Me.kembalian Then
-                        Throw New Exception($"Saldo sistem (Rp {cashToko:N0}) tidak cukup untuk kembalian.")
-                    End If
-                End If
-
-                ' B. Update Ekonomi (Tunai Bertambah)
-                Dim qEko As String = "UPDATE ekonomi SET saldo_cash = saldo_cash + @Total, total_pemasukkan = total_pemasukkan + @Total WHERE id_utama = 'UTAMA'"
-                Using cmd As New MySqlCommand(qEko, conn, trans)
+                Dim qKasir As String = "UPDATE akun SET cash = cash + @Total WHERE akunID = @StaffId"
+                Using cmd As New MySqlCommand(qKasir, conn, trans)
                     cmd.Parameters.AddWithValue("@Total", Me.totalBelanja)
+                    cmd.Parameters.AddWithValue("@StaffId", SessionManager.AkunID)
                     cmd.ExecuteNonQuery()
                 End Using
 
-                ' C. Catat Jurnal
+                ' Catat Jurnal
                 Dim qJurnal As String = "INSERT INTO jurnal_keuangan (id_jurnal, jenis_transaksi, nominal, TipeAliran, MetodeBayar, keterangan, akunID_staff) VALUES (@Id, 'PENJUALAN', @Nom, 'MASUK', 'CASH', @Ket, @Staff)"
                 Using cmd As New MySqlCommand(qJurnal, conn, trans)
                     cmd.Parameters.AddWithValue("@Id", idJurnal)
@@ -158,18 +228,13 @@ Public Class KonfirmasiBayar
                     cmd.ExecuteNonQuery()
                 End Using
 
-                ' Update Sesi Lokal
+                ' Update Session Lokal (Agar UI Kasir langsung update)
                 SessionManager.AddCash(CInt(Me.totalBelanja))
 
             ElseIf Me.metodeBayar = "E-money" Then
-                ' A. Update Ekonomi (Alihkan Deposit Member ke Pemasukan Toko)
-                Dim qEko As String = "UPDATE ekonomi SET total_saldo_emoney_member = total_saldo_emoney_member - @Total, total_pemasukkan = total_pemasukkan + @Total WHERE id_utama = 'UTAMA'"
-                Using cmd As New MySqlCommand(qEko, conn, trans)
-                    cmd.Parameters.AddWithValue("@Total", Me.totalBelanja)
-                    cmd.ExecuteNonQuery()
-                End Using
+                ' --- LOGIKA E-MONEY ---
 
-                ' B. Potong Saldo Member
+                ' 1. Potong Saldo Member (Pembeli)
                 Dim qMember As String = "UPDATE akun SET emoney = emoney - @Total WHERE akunID = @MemId"
                 Using cmd As New MySqlCommand(qMember, conn, trans)
                     cmd.Parameters.AddWithValue("@Total", Me.totalBelanja)
@@ -177,7 +242,16 @@ Public Class KonfirmasiBayar
                     cmd.ExecuteNonQuery()
                 End Using
 
-                ' C. Catat Jurnal
+                ' 2. Masukkan ke Saldo Emoney Kasir (Sesuai Request)
+                ' (Kasir menerima E-money dari pelanggan)
+                Dim qKasir As String = "UPDATE akun SET emoney = emoney + @Total WHERE akunID = @StaffId"
+                Using cmd As New MySqlCommand(qKasir, conn, trans)
+                    cmd.Parameters.AddWithValue("@Total", Me.totalBelanja)
+                    cmd.Parameters.AddWithValue("@StaffId", SessionManager.AkunID)
+                    cmd.ExecuteNonQuery()
+                End Using
+
+                ' 3. Catat Jurnal
                 Dim qJurnal As String = "INSERT INTO jurnal_keuangan (id_jurnal, jenis_transaksi, nominal, TipeAliran, MetodeBayar, keterangan, akunID_staff) VALUES (@Id, 'PENJUALAN', @Nom, 'MASUK', 'E-MONEY', @Ket, @Staff)"
                 Using cmd As New MySqlCommand(qJurnal, conn, trans)
                     cmd.Parameters.AddWithValue("@Id", idJurnal)
@@ -186,17 +260,22 @@ Public Class KonfirmasiBayar
                     cmd.Parameters.AddWithValue("@Staff", SessionManager.AkunID)
                     cmd.ExecuteNonQuery()
                 End Using
+
+                ' Update Session Lokal
+                SessionManager.AddEmoney(CInt(Me.totalBelanja))
             End If
 
             trans.Commit()
 
-            ' --- 6. Update UI (Tanpa MessageBox) ---
+            ' --- F. Update UI Setelah Sukses ---
             LblJudulKonfirmasi.Text = "Transaksi Sukses!"
             LblJudulKonfirmasi.ForeColor = Color.Green
             BtnKonfirmasi.Visible = False
             BtnKembali.Visible = False
             BtnDownloadStruk.Visible = True
             BtnTutup.Visible = True
+
+            LoadDataAkhir_Transaksi()
 
         Catch ex As Exception
             Try : trans?.Rollback() : Catch : End Try
@@ -206,9 +285,8 @@ Public Class KonfirmasiBayar
         End Try
     End Sub
 
-    ''' <summary>
-    ''' Generate PDF Struk
-    ''' </summary>
+    ' --- 4. Fitur Cetak PDF ---
+
     Private Sub BtnDownloadStruk_Click(sender As Object, e As EventArgs) Handles BtnDownloadStruk.Click
         Dim saveDlg As New SaveFileDialog With {
             .Filter = "PDF Files|*.pdf",
@@ -236,37 +314,27 @@ Public Class KonfirmasiBayar
         Dim fontSmall As Font = FontFactory.GetFont(FontFactory.HELVETICA, 6)
 
         ' Header
-        Dim pTitle As New Paragraph("TOKO PAKAIAN", fontHeader) With {.Alignment = Element.ALIGN_CENTER}
+        Dim pTitle As New Paragraph("4 PILAR CLOTHING", fontHeader) With {.Alignment = Element.ALIGN_CENTER}
         doc.Add(pTitle)
-        doc.Add(New Paragraph("Jl. Contoh No. 123, Surabaya", fontSmall) With {.Alignment = Element.ALIGN_CENTER})
+        doc.Add(New Paragraph("JL.Yang Pernah Dekat, Buduran, Sidoarjo", fontSmall) With {.Alignment = Element.ALIGN_CENTER})
         doc.Add(New Paragraph("--------------------------------", fontNormal))
 
-        ' Info Transaksi
+        ' Info
         doc.Add(New Paragraph($"ID: {idTrans}", fontNormal))
         doc.Add(New Paragraph($"Tgl: {DateTime.Now:dd/MM/yyyy HH:mm}", fontNormal))
         doc.Add(New Paragraph($"Kasir: {SessionManager.Username}", fontNormal))
         doc.Add(New Paragraph($"Pelanggan: {Me.namaPelanggan}", fontNormal))
         doc.Add(New Paragraph("--------------------------------", fontNormal))
 
-        ' [PERBAIKAN] Menggunakan Object Initializer agar kode lebih ringkas & bersih
-        Dim table As New PdfPTable(3) With {
-            .WidthPercentage = 100
-        }
+        ' Table Items
+        Dim table As New PdfPTable(3) With {.WidthPercentage = 100}
         table.SetWidths({4, 1, 2})
 
-        ' Ambil Detail
-        Dim dt As New DataTable()
-        DB.Koneksi()
-        Using cmd As New MySqlCommand("SELECT b.Nama, d.qty, d.TotalHarga FROM transaksi_detail d JOIN barang b ON d.IdBarang = b.IdBarang WHERE d.IdTransaksi = @id", DB.Connection)
-            cmd.Parameters.AddWithValue("@id", idTrans)
-            Using adp As New MySqlDataAdapter(cmd) : adp.Fill(dt) : End Using
-        End Using
-        DB.CloseConnection()
-
-        For Each row As DataRow In dt.Rows
-            table.AddCell(New PdfPCell(New Phrase(row("Nama").ToString(), fontSmall)) With {.Border = 0})
-            table.AddCell(New PdfPCell(New Phrase("x" & row("qty").ToString(), fontSmall)) With {.Border = 0, .HorizontalAlignment = Element.ALIGN_CENTER})
-            table.AddCell(New PdfPCell(New Phrase(CDec(row("TotalHarga")).ToString("N0"), fontSmall)) With {.Border = 0, .HorizontalAlignment = Element.ALIGN_RIGHT})
+        ' Gunakan data dari GridView yang sudah ada (karena sudah dimuat di LoadDataAkhir_Transaksi)
+        For Each dgvRow As DataGridViewRow In PanelDataInfo.Rows
+            table.AddCell(New PdfPCell(New Phrase(dgvRow.Cells("Nama").Value.ToString(), fontSmall)) With {.Border = 0})
+            table.AddCell(New PdfPCell(New Phrase("x" & dgvRow.Cells("Qty").Value.ToString(), fontSmall)) With {.Border = 0, .HorizontalAlignment = Element.ALIGN_CENTER})
+            table.AddCell(New PdfPCell(New Phrase(dgvRow.Cells("Subtotal").Value.ToString(), fontSmall)) With {.Border = 0, .HorizontalAlignment = Element.ALIGN_RIGHT})
         Next
         doc.Add(table)
 
@@ -277,7 +345,6 @@ Public Class KonfirmasiBayar
         doc.Add(pTotal)
         doc.Add(New Paragraph($"{Me.metodeBayar}: Rp {Me.jumlahBayar:N0}", fontNormal) With {.Alignment = Element.ALIGN_RIGHT})
         doc.Add(New Paragraph($"Kembali: Rp {Me.kembalian:N0}", fontNormal) With {.Alignment = Element.ALIGN_RIGHT})
-
         doc.Add(New Paragraph(" ", fontNormal))
         doc.Add(New Paragraph("Terima Kasih!", fontNormal) With {.Alignment = Element.ALIGN_CENTER})
 
@@ -285,11 +352,12 @@ Public Class KonfirmasiBayar
         writer.Close()
     End Sub
 
-    ' Event Tombol Tutup
-    ' [PERBAIKAN] Tidak ada MessageBox di sini. Hanya menutup form dan mengirim status OK.
     Private Sub BtnTutup_Click(sender As Object, e As EventArgs) Handles BtnTutup.Click
         Me.DialogResult = DialogResult.OK
         Me.Close()
+    End Sub
+
+    Private Sub PanelDataInfo_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles PanelDataInfo.CellContentClick
     End Sub
 
 End Class

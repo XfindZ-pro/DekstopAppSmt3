@@ -35,9 +35,11 @@ Partial Class SetorKas
         '
         'BtnKembali
         '
-        Me.BtnKembali.Location = New System.Drawing.Point(37, 34)
+        Me.BtnKembali.Font = New System.Drawing.Font("Montserrat Medium", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnKembali.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnKembali.Location = New System.Drawing.Point(24, 21)
         Me.BtnKembali.Name = "BtnKembali"
-        Me.BtnKembali.Size = New System.Drawing.Size(75, 23)
+        Me.BtnKembali.Size = New System.Drawing.Size(139, 36)
         Me.BtnKembali.TabIndex = 12
         Me.BtnKembali.Text = "Kembali"
         Me.BtnKembali.UseVisualStyleBackColor = True
@@ -45,34 +47,43 @@ Partial Class SetorKas
         'LabelNominalSetor
         '
         Me.LabelNominalSetor.AutoSize = True
-        Me.LabelNominalSetor.Location = New System.Drawing.Point(136, 178)
+        Me.LabelNominalSetor.BackColor = System.Drawing.Color.Transparent
+        Me.LabelNominalSetor.Font = New System.Drawing.Font("Montserrat SemiBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelNominalSetor.ForeColor = System.Drawing.Color.White
+        Me.LabelNominalSetor.Location = New System.Drawing.Point(70, 180)
         Me.LabelNominalSetor.Name = "LabelNominalSetor"
-        Me.LabelNominalSetor.Size = New System.Drawing.Size(95, 16)
+        Me.LabelNominalSetor.Size = New System.Drawing.Size(167, 31)
         Me.LabelNominalSetor.TabIndex = 13
         Me.LabelNominalSetor.Text = "Nominal Setor:"
         '
         'LabelSaldoCashDimiliki
         '
         Me.LabelSaldoCashDimiliki.AutoSize = True
-        Me.LabelSaldoCashDimiliki.Location = New System.Drawing.Point(139, 82)
+        Me.LabelSaldoCashDimiliki.BackColor = System.Drawing.Color.Transparent
+        Me.LabelSaldoCashDimiliki.Font = New System.Drawing.Font("Montserrat SemiBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSaldoCashDimiliki.ForeColor = System.Drawing.Color.White
+        Me.LabelSaldoCashDimiliki.Location = New System.Drawing.Point(70, 87)
         Me.LabelSaldoCashDimiliki.Name = "LabelSaldoCashDimiliki"
-        Me.LabelSaldoCashDimiliki.Size = New System.Drawing.Size(90, 16)
+        Me.LabelSaldoCashDimiliki.Size = New System.Drawing.Size(164, 31)
         Me.LabelSaldoCashDimiliki.TabIndex = 14
         Me.LabelSaldoCashDimiliki.Text = "Tunai Dimiliki:"
         '
         'NumericNominal
         '
-        Me.NumericNominal.Location = New System.Drawing.Point(257, 171)
+        Me.NumericNominal.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NumericNominal.Location = New System.Drawing.Point(268, 180)
         Me.NumericNominal.Maximum = New Decimal(New Integer() {100000000, 0, 0, 0})
         Me.NumericNominal.Name = "NumericNominal"
-        Me.NumericNominal.Size = New System.Drawing.Size(136, 22)
+        Me.NumericNominal.Size = New System.Drawing.Size(136, 30)
         Me.NumericNominal.TabIndex = 15
         '
         'BtnSetor
         '
+        Me.BtnSetor.Font = New System.Drawing.Font("Montserrat Medium", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSetor.ForeColor = System.Drawing.Color.SteelBlue
         Me.BtnSetor.Location = New System.Drawing.Point(268, 286)
         Me.BtnSetor.Name = "BtnSetor"
-        Me.BtnSetor.Size = New System.Drawing.Size(125, 23)
+        Me.BtnSetor.Size = New System.Drawing.Size(136, 42)
         Me.BtnSetor.TabIndex = 16
         Me.BtnSetor.Text = "Setor"
         Me.BtnSetor.UseVisualStyleBackColor = True
@@ -80,31 +91,40 @@ Partial Class SetorKas
         'RadioButtonCash
         '
         Me.RadioButtonCash.AutoSize = True
-        Me.RadioButtonCash.Location = New System.Drawing.Point(257, 217)
+        Me.RadioButtonCash.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButtonCash.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButtonCash.ForeColor = System.Drawing.Color.White
+        Me.RadioButtonCash.Location = New System.Drawing.Point(268, 233)
         Me.RadioButtonCash.Name = "RadioButtonCash"
-        Me.RadioButtonCash.Size = New System.Drawing.Size(59, 20)
+        Me.RadioButtonCash.Size = New System.Drawing.Size(85, 35)
         Me.RadioButtonCash.TabIndex = 17
         Me.RadioButtonCash.TabStop = True
-        Me.RadioButtonCash.Text = "Csah"
-        Me.RadioButtonCash.UseVisualStyleBackColor = True
+        Me.RadioButtonCash.Text = "Cash"
+        Me.RadioButtonCash.UseVisualStyleBackColor = False
         '
         'RadioButtonBank
         '
         Me.RadioButtonBank.AutoSize = True
-        Me.RadioButtonBank.Location = New System.Drawing.Point(355, 217)
+        Me.RadioButtonBank.BackColor = System.Drawing.Color.Transparent
+        Me.RadioButtonBank.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButtonBank.ForeColor = System.Drawing.Color.White
+        Me.RadioButtonBank.Location = New System.Drawing.Point(366, 233)
         Me.RadioButtonBank.Name = "RadioButtonBank"
-        Me.RadioButtonBank.Size = New System.Drawing.Size(59, 20)
+        Me.RadioButtonBank.Size = New System.Drawing.Size(88, 35)
         Me.RadioButtonBank.TabIndex = 18
         Me.RadioButtonBank.TabStop = True
         Me.RadioButtonBank.Text = "Bank"
-        Me.RadioButtonBank.UseVisualStyleBackColor = True
+        Me.RadioButtonBank.UseVisualStyleBackColor = False
         '
         'LabelSaldoEmoneyDimiliki
         '
         Me.LabelSaldoEmoneyDimiliki.AutoSize = True
-        Me.LabelSaldoEmoneyDimiliki.Location = New System.Drawing.Point(139, 108)
+        Me.LabelSaldoEmoneyDimiliki.BackColor = System.Drawing.Color.Transparent
+        Me.LabelSaldoEmoneyDimiliki.Font = New System.Drawing.Font("Montserrat SemiBold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSaldoEmoneyDimiliki.ForeColor = System.Drawing.Color.White
+        Me.LabelSaldoEmoneyDimiliki.Location = New System.Drawing.Point(70, 131)
         Me.LabelSaldoEmoneyDimiliki.Name = "LabelSaldoEmoneyDimiliki"
-        Me.LabelSaldoEmoneyDimiliki.Size = New System.Drawing.Size(103, 16)
+        Me.LabelSaldoEmoneyDimiliki.Size = New System.Drawing.Size(186, 31)
         Me.LabelSaldoEmoneyDimiliki.TabIndex = 19
         Me.LabelSaldoEmoneyDimiliki.Text = "Emoney Dimiliki"
         '
@@ -112,6 +132,7 @@ Partial Class SetorKas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.aksieii
         Me.ClientSize = New System.Drawing.Size(658, 435)
         Me.Controls.Add(Me.LabelSaldoEmoneyDimiliki)
         Me.Controls.Add(Me.RadioButtonBank)

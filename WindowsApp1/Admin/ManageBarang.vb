@@ -29,9 +29,6 @@ Public Class ManageBarang
         ' Siapkan kolom DataGridView
         SiapkanKolomGrid()
 
-        ' **[PERUBAHAN]** Jadikan TextIDBarang ReadOnly
-        TextIDBarang.ReadOnly = True
-
         ' Inisialisasi state form
         ResetForm()
 
@@ -173,11 +170,9 @@ Public Class ManageBarang
     End Function
 
     Private Function Validasi(data() As String) As Boolean
-        ' Validasi ID tetap penting, walau auto-generate
-        If String.IsNullOrWhiteSpace(data(0)) OrElse Not data(0).StartsWith("BRG") Then
-            MessageBox.Show("ID Barang tidak valid. Klik 'Baru' untuk membuat ID.") : Return False
+        If String.IsNullOrWhiteSpace(data(0)) Then
+            MessageBox.Show("ID Barang tidak boleh kosong (Klik 'Baru' untuk auto-generate).") : Return False
         End If
-        ' ... (validasi lainnya tetap sama) ...
         If String.IsNullOrWhiteSpace(data(1)) Then
             MessageBox.Show("Nama Barang wajib diisi") : TextNamaBarang.Focus() : Return False
         End If
@@ -266,13 +261,16 @@ Public Class ManageBarang
         TextUkuranBarang.Clear()
         PanelDataBarang.ClearSelection()
 
-        ' **[PERUBAHAN]** Atur UI untuk mode ID otomatis
+        ' Set UI Mode Baru
         isEditMode = False
         originalIdBarang = ""
         BtnSimpan.Text = "Simpan"
         BtnHapus.Enabled = False
-        TextIDBarang.ReadOnly = True ' Pastikan ReadOnly
-        TextNamaBarang.Focus() ' Fokus ke Nama, bukan ID
+
+        ' ID Barang ReadOnly (Paten)
+        TextIDBarang.ReadOnly = True
+        TextIDBarang.BackColor = SystemColors.Window ' Warna putih normal untuk input baru (nanti diisi auto)
+        TextNamaBarang.Focus()
     End Sub
 
     ' ------------------------------------------
@@ -284,13 +282,9 @@ Public Class ManageBarang
         Me.Hide()
     End Sub
 
-    ''' <summary>
-    ''' **[PERUBAHAN]** Tombol "Baru" sekarang memanggil ResetForm
-    ''' dan langsung meng-generate ID Barang baru.
-    ''' </summary>
     Private Sub BtnBaru_Click(sender As Object, e As EventArgs) Handles BtnBaru.Click
         ResetForm()
-        TextIDBarang.Text = "Generating..." ' Opsional
+        TextIDBarang.Text = "Generating..."
         Dim newId As String = GenerateNextIdBarang()
         If String.IsNullOrEmpty(newId) Then
             MessageBox.Show("Gagal membuat ID Barang baru.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -298,7 +292,7 @@ Public Class ManageBarang
         Else
             TextIDBarang.Text = newId
         End If
-        TextNamaBarang.Focus() ' Fokus ke field input pertama
+        TextNamaBarang.Focus()
     End Sub
 
     Private Sub BtnSimpan_Click(sender As Object, e As EventArgs) Handles BtnSimpan.Click
@@ -314,27 +308,13 @@ Public Class ManageBarang
     End Sub
 
     ' ------------------------------------------
-    '  **[FUNGSI BARU]** Auto-Generate ID Barang
+    '  Auto-Generate ID Barang
     ' ------------------------------------------
-    ''' <summary>
-    ''' Menghasilkan IdBarang berikutnya, mengisi celah (gap) jika ada.
-    ''' Format: BRG0001
-    ''' </summary>
-    ''' <returns>String ID Barang baru, atau String.Empty jika gagal.</returns>
     Private Function GenerateNextIdBarang() As String
         Try
             db.Koneksi()
-            Dim nextNumber As Integer = 1 ' Default jika tabel kosong
+            Dim nextNumber As Integer = 1
 
-            ' Query ini sangat efisien:
-            ' 1. (SELECT 0 AS num) -> Menambahkan '0' sebagai angka awal.
-            ' 2. (SELECT CAST(...)) -> Mengambil semua angka dari IdBarang (misal: 1, 3, 5)
-            ' 3. (UNION ALL) -> Menggabungkan 0 dengan 1, 3, 5 -> (0, 1, 3, 5)
-            ' 4. LEFT JOIN t1.num + 1 = t2.num -> Mencari angka + 1 yang tidak ada di tabel (mencari gap)
-            ' 5. (t1.num = 0, t1.num+1 = 1. t2.num = 1 ADA. t2.num IS NULL -> False)
-            ' 6. (t1.num = 1, t1.num+1 = 2. t2.num = 2 TIDAK ADA. t2.num IS NULL -> True)
-            ' 7. WHERE t2.num IS NULL -> Menemukan semua gap (2, 4, 6)
-            ' 8. SELECT MIN(t1.num + 1) -> Mengambil gap terkecil (yaitu 2)
             Dim sql As String =
                 "SELECT MIN(t1.num + 1) " &
                 "FROM (SELECT 0 AS num UNION ALL SELECT CAST(SUBSTRING(IdBarang, 4) AS UNSIGNED) AS num FROM barang WHERE IdBarang LIKE 'BRG%') AS t1 " &
@@ -348,7 +328,6 @@ Public Class ManageBarang
                 End If
             End Using
 
-            ' Format angka menjadi 4 digit (misal: 2 -> "0002") dan tambahkan prefix
             Return "BRG" & nextNumber.ToString("D4")
 
         Catch ex As Exception
@@ -368,9 +347,8 @@ Public Class ManageBarang
         Dim data = BacaFormKeArray()
         If Not Validasi(data) Then Exit Sub
 
-        ' Cek duplikat ID (Client-side)
         If barangTable.AsEnumerable().Any(Function(r) String.Equals(CStr(r("IdBarang")), data(0), StringComparison.OrdinalIgnoreCase)) Then
-            MessageBox.Show("ID Barang sudah ada (client-side). Klik 'Baru' lagi.") : Exit Sub
+            MessageBox.Show("ID Barang sudah ada. Klik 'Baru' lagi.") : Exit Sub
         End If
 
         Try
@@ -402,8 +380,8 @@ Public Class ManageBarang
                 End If
             End Using
         Catch ex As MySqlException
-            If ex.Number = 1062 Then ' Error Duplikat Primary Key
-                MessageBox.Show("ID Barang '" & data(0) & "' sudah ada di database. Silakan klik 'Baru' lagi untuk mendapatkan ID baru.", "Duplikat ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If ex.Number = 1062 Then
+                MessageBox.Show("ID Barang '" & data(0) & "' sudah ada. Klik 'Baru' lagi.", "Duplikat ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 MessageBox.Show("Error saat menyimpan data: " & ex.Message)
             End If
@@ -420,17 +398,15 @@ Public Class ManageBarang
         Dim data = BacaFormKeArray()
         If Not Validasi(data) Then Exit Sub
 
-        ' **[PERUBAHAN]** Query UPDATE tidak boleh mengubah IdBarang
-        ' IdBarang (data(0)) digunakan di WHERE clause, tapi ID aslinya ada di originalIdBarang
         Try
             db.Koneksi()
+            ' [PERBAIKAN] Tidak mengupdate kolom IdBarang
             Dim q As String =
-                "UPDATE barang SET IdBarang = @NewIdBarang, Nama = @Nama, IdKategori = @IdKategori, IdShelf = @IdShelf, Satuan = @Satuan, " &
+                "UPDATE barang SET Nama = @Nama, IdKategori = @IdKategori, IdShelf = @IdShelf, Satuan = @Satuan, " &
                 "HargaBeli = @HargaBeli, HargaJual = @HargaJual, Stock = @Stock, supplier = @Supplier, " &
                 "Warna = @Warna, Ukuran = @Ukuran WHERE IdBarang = @OriginalIdBarang;"
 
             Using cmd As New MySqlCommand(q, db.Connection)
-                cmd.Parameters.AddWithValue("@NewIdBarang", data(0)) ' ID Barang baru dari form
                 cmd.Parameters.AddWithValue("@Nama", data(1))
                 cmd.Parameters.AddWithValue("@IdKategori", data(2))
                 cmd.Parameters.AddWithValue("@IdShelf", data(3))
@@ -441,7 +417,7 @@ Public Class ManageBarang
                 cmd.Parameters.AddWithValue("@Supplier", data(8))
                 cmd.Parameters.AddWithValue("@Warna", data(9))
                 cmd.Parameters.AddWithValue("@Ukuran", data(10))
-                cmd.Parameters.AddWithValue("@OriginalIdBarang", originalIdBarang) ' ID Barang lama
+                cmd.Parameters.AddWithValue("@OriginalIdBarang", originalIdBarang) ' WHERE Clause
 
                 Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
                 If rowsAffected > 0 Then
@@ -449,15 +425,9 @@ Public Class ManageBarang
                     LoadData()
                     ResetForm()
                 Else
-                    MessageBox.Show("Data gagal diupdate (ID Barang mungkin tidak ditemukan).")
+                    MessageBox.Show("Data gagal diupdate (ID tidak ditemukan).")
                 End If
             End Using
-        Catch ex As MySqlException
-            If ex.Number = 1062 Then ' Error Duplikat Primary Key
-                MessageBox.Show("ID Barang '" & data(0) & "' sudah digunakan oleh data lain.", "Duplikat ID", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                MessageBox.Show("Error saat mengubah data: " & ex.Message)
-            End If
         Catch ex As Exception
             MessageBox.Show("Error saat mengubah data: " & ex.Message)
         Finally
@@ -526,22 +496,21 @@ Public Class ManageBarang
         SetComboBoxValue(kategoriBarang, CStr(r.Cells("Kategori").Value))
         SetComboBoxValue(rakBarang, CStr(r.Cells("Rak").Value))
 
-        ' Update UI
+        ' Update UI Mode Edit
         BtnSimpan.Text = "Update"
         BtnHapus.Enabled = True
-        ' **[PERUBAHAN]** Tetap ReadOnly, tapi perbolehkan update ID
-        TextIDBarang.ReadOnly = False
+
+        ' [PERBAIKAN] ID Barang Paten (Tidak Bisa Diedit) & Visual Abu-abu
+        TextIDBarang.ReadOnly = True
+        TextIDBarang.BackColor = SystemColors.Control ' Warna abu-abu standar windows
     End Sub
 
-    ' Helper untuk set ComboBox value berdasarkan display text
     Private Sub SetComboBoxValue(combo As ComboBox, displayValue As String)
         If String.IsNullOrEmpty(displayValue) Then
             combo.SelectedIndex = -1
             Return
         End If
-        ' Cara lebih efisien untuk set ComboBox berdasarkan DisplayMember
         combo.SelectedIndex = combo.FindStringExact(displayValue)
-        ' Fallback jika FindStringExact gagal (misal karena spasi, dll)
         If combo.SelectedIndex = -1 Then
             combo.SelectedIndex = combo.FindString(displayValue)
         End If

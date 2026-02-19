@@ -19,18 +19,26 @@ Public Class Kasir
         RadioButtonMemberTidak.Checked = True
         RadioButtonTunai.Checked = True
 
+        ' Update tampilan panel dan info kas
         UpdatePanelDisplay()
+        UpdateLabelKasir()
     End Sub
 
     ' [PERBAIKAN] Hanya menutup form ini, tidak mematikan aplikasi
     Private Sub Kasir_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Me.Dispose()
+        Application.Exit()
     End Sub
 
     Private Sub BtnKembali_Click(sender As Object, e As EventArgs) Handles BtnKembali.Click
         Dim dashboardForm As New Dashboard()
         dashboardForm.Show()
-        Me.Close()
+        Me.Hide()
+    End Sub
+
+    ' [BARU] Fungsi untuk mengupdate label uang kasir
+    Private Sub UpdateLabelKasir()
+        ' Ambil nilai cash terbaru dari SessionManager (yang sinkron dengan DB)
+        LabelTunaiKasir.Text = "Uang di Laci: Rp " & SessionManager.Cash.ToString("N0")
     End Sub
 
 #End Region
@@ -277,7 +285,6 @@ Public Class Kasir
     End Sub
 
     Private Sub BtnUpdateJumlah_Click(sender As Object, e As EventArgs) Handles BtnUpdateJumlah.Click
-        ' Logika Update Jumlah sama dengan sebelumnya, hanya dirapikan structure-nya
         If PanelDataInfo.CurrentRow Is Nothing Then Return
         Dim qtyBaru = CInt(NumericJumlah.Value)
         Dim idKeranjang = PanelDataInfo.CurrentRow.Cells("IdKeranjang").Value.ToString()
@@ -285,7 +292,6 @@ Public Class Kasir
 
         Try
             DB.Koneksi()
-            ' Cek stok realtime
             Dim stokGudang As Integer = 0
             Dim hargaSatuan As Integer = 0
             Using cmd As New MySqlCommand("SELECT Stock, HargaJual FROM barang WHERE IdBarang = @id", DB.Connection)
@@ -349,7 +355,7 @@ Public Class Kasir
             metodeBayar = "Tunai"
             jumlahBayar = NumericTunai.Value
 
-            ' Cek 1: Apakah uang pelanggan cukup?
+            ' Cek 1: Uang Pelanggan vs Total Belanja
             If jumlahBayar < currentTotalBelanja Then
                 MessageBox.Show($"Uang tunai kurang Rp {(currentTotalBelanja - jumlahBayar):N0}", "Pembayaran Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
@@ -357,9 +363,8 @@ Public Class Kasir
 
             kembalian = jumlahBayar - currentTotalBelanja
 
-            ' Cek 2: [FITUR BARU] Apakah KASIR punya uang kembalian?
+            ' Cek 2: Uang Kembalian vs Uang Laci Kasir
             If kembalian > 0 Then
-                ' Menggunakan SessionManager.Cash yang sudah kita buat sebelumnya
                 If SessionManager.Cash < kembalian Then
                     MessageBox.Show($"TRANSAKSI DITOLAK!" & vbCrLf & vbCrLf &
                                     $"Kasir tidak memiliki cukup uang tunai untuk kembalian." & vbCrLf &
@@ -367,7 +372,7 @@ Public Class Kasir
                                     $"Uang di laci kasir: Rp {SessionManager.Cash:N0}" & vbCrLf & vbCrLf &
                                     "Silakan minta uang pas atau lakukan 'Setor/Isi Kas' terlebih dahulu.",
                                     "Kasir Kurang Modal", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return ' Batalkan proses
+                    Return
                 End If
             End If
 
@@ -387,15 +392,14 @@ Public Class Kasir
         ' 3. Proses Ke Konfirmasi
         Dim frm As New KonfirmasiBayar(currentTotalBelanja, jumlahBayar, kembalian, namaPelanggan, metodeBayar, memberId)
         If frm.ShowDialog() = DialogResult.OK Then
-
+            MessageBox.Show("Transaksi Selesai.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ResetForm()
 
             ' Update Session Cash lokal karena transaksi tunai mungkin menambah uang di laci
             If metodeBayar = "Tunai" Then
-                ' (Opsional) Refresh Session cash dari DB jika perlu, 
-                ' tapi KonfirmasiBayar biasanya sudah update DB.
-                ' Kita update Session manual agar UI Kasir sinkron tanpa relogin:
                 SessionManager.AddCash(CInt(currentTotalBelanja))
+                ' Refresh Label setelah uang bertambah
+                UpdateLabelKasir()
             End If
         End If
     End Sub
@@ -474,6 +478,13 @@ Public Class Kasir
             End If
         End If
     End Sub
+
+    ' Update label manual jika diklik
+    Private Sub LabelTunaiKasir_Click(sender As Object, e As EventArgs) Handles LabelTunaiKasir.Click
+        UpdateLabelKasir()
+    End Sub
+
+
 
 #End Region
 

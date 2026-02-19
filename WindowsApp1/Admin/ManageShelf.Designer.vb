@@ -45,22 +45,25 @@ Partial Class ManageShelf
         '
         'KembaliBtn
         '
-        Me.KembaliBtn.Location = New System.Drawing.Point(81, 25)
+        Me.KembaliBtn.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KembaliBtn.ForeColor = System.Drawing.Color.SteelBlue
+        Me.KembaliBtn.Location = New System.Drawing.Point(81, 12)
         Me.KembaliBtn.Name = "KembaliBtn"
-        Me.KembaliBtn.Size = New System.Drawing.Size(133, 32)
+        Me.KembaliBtn.Size = New System.Drawing.Size(133, 45)
         Me.KembaliBtn.TabIndex = 47
         Me.KembaliBtn.Text = "Kembali"
         Me.KembaliBtn.UseVisualStyleBackColor = True
         '
         'PanelDataShelf
         '
+        Me.PanelDataShelf.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.PanelDataShelf.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.PanelDataShelf.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Nama, Me.Lokasi})
-        Me.PanelDataShelf.Location = New System.Drawing.Point(20, 279)
+        Me.PanelDataShelf.Location = New System.Drawing.Point(33, 279)
         Me.PanelDataShelf.Name = "PanelDataShelf"
         Me.PanelDataShelf.RowHeadersWidth = 51
         Me.PanelDataShelf.RowTemplate.Height = 24
-        Me.PanelDataShelf.Size = New System.Drawing.Size(1375, 267)
+        Me.PanelDataShelf.Size = New System.Drawing.Size(1160, 267)
         Me.PanelDataShelf.TabIndex = 46
         '
         'Id
@@ -68,61 +71,67 @@ Partial Class ManageShelf
         Me.Id.HeaderText = "ID Rak"
         Me.Id.MinimumWidth = 6
         Me.Id.Name = "Id"
-        Me.Id.Width = 125
         '
         'Nama
         '
         Me.Nama.HeaderText = "Nama Rak"
         Me.Nama.MinimumWidth = 6
         Me.Nama.Name = "Nama"
-        Me.Nama.Width = 125
         '
         'Lokasi
         '
         Me.Lokasi.HeaderText = "Lokasi Rak"
         Me.Lokasi.MinimumWidth = 6
         Me.Lokasi.Name = "Lokasi"
-        Me.Lokasi.Width = 125
         '
         'BtnHapus
         '
-        Me.BtnHapus.Location = New System.Drawing.Point(987, 112)
+        Me.BtnHapus.Font = New System.Drawing.Font("Montserrat Medium", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnHapus.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnHapus.Location = New System.Drawing.Point(1004, 112)
         Me.BtnHapus.Name = "BtnHapus"
-        Me.BtnHapus.Size = New System.Drawing.Size(75, 23)
+        Me.BtnHapus.Size = New System.Drawing.Size(114, 42)
         Me.BtnHapus.TabIndex = 45
         Me.BtnHapus.Text = "Hapus"
         Me.BtnHapus.UseVisualStyleBackColor = True
         '
         'BtnSimpan
         '
-        Me.BtnSimpan.Location = New System.Drawing.Point(877, 112)
+        Me.BtnSimpan.Font = New System.Drawing.Font("Montserrat Medium", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSimpan.ForeColor = System.Drawing.Color.SteelBlue
+        Me.BtnSimpan.Location = New System.Drawing.Point(884, 112)
         Me.BtnSimpan.Name = "BtnSimpan"
-        Me.BtnSimpan.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSimpan.Size = New System.Drawing.Size(114, 42)
         Me.BtnSimpan.TabIndex = 44
         Me.BtnSimpan.Text = "Simpan"
         Me.BtnSimpan.UseVisualStyleBackColor = True
         '
         'BtnUbah
         '
+        Me.BtnUbah.Font = New System.Drawing.Font("Montserrat Medium", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUbah.ForeColor = System.Drawing.Color.SteelBlue
         Me.BtnUbah.Location = New System.Drawing.Point(765, 112)
         Me.BtnUbah.Name = "BtnUbah"
-        Me.BtnUbah.Size = New System.Drawing.Size(75, 23)
+        Me.BtnUbah.Size = New System.Drawing.Size(114, 42)
         Me.BtnUbah.TabIndex = 43
         Me.BtnUbah.Text = "Ubah"
         Me.BtnUbah.UseVisualStyleBackColor = True
         '
         'BtnBaru
         '
+        Me.BtnBaru.Font = New System.Drawing.Font("Montserrat Medium", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBaru.ForeColor = System.Drawing.Color.SteelBlue
         Me.BtnBaru.Location = New System.Drawing.Point(648, 112)
         Me.BtnBaru.Name = "BtnBaru"
-        Me.BtnBaru.Size = New System.Drawing.Size(75, 23)
+        Me.BtnBaru.Size = New System.Drawing.Size(114, 42)
         Me.BtnBaru.TabIndex = 42
         Me.BtnBaru.Text = "Baru"
         Me.BtnBaru.UseVisualStyleBackColor = True
         '
         'TextLokasiShelf
         '
-        Me.TextLokasiShelf.Location = New System.Drawing.Point(259, 157)
+        Me.TextLokasiShelf.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextLokasiShelf.Location = New System.Drawing.Point(287, 160)
         Me.TextLokasiShelf.Name = "TextLokasiShelf"
         Me.TextLokasiShelf.Size = New System.Drawing.Size(223, 96)
         Me.TextLokasiShelf.TabIndex = 41
@@ -130,6 +139,9 @@ Partial Class ManageShelf
         '
         'LabelLokasi
         '
+        Me.LabelLokasi.BackColor = System.Drawing.Color.Transparent
+        Me.LabelLokasi.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLokasi.ForeColor = System.Drawing.Color.White
         Me.LabelLokasi.Location = New System.Drawing.Point(115, 165)
         Me.LabelLokasi.Name = "LabelLokasi"
         Me.LabelLokasi.Size = New System.Drawing.Size(180, 33)
@@ -138,21 +150,26 @@ Partial Class ManageShelf
         '
         'TextNamaShelf
         '
-        Me.TextNamaShelf.Location = New System.Drawing.Point(259, 113)
+        Me.TextNamaShelf.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextNamaShelf.Location = New System.Drawing.Point(287, 116)
         Me.TextNamaShelf.Name = "TextNamaShelf"
-        Me.TextNamaShelf.Size = New System.Drawing.Size(223, 22)
+        Me.TextNamaShelf.Size = New System.Drawing.Size(223, 32)
         Me.TextNamaShelf.TabIndex = 39
         '
         'TextIDShelf
         '
-        Me.TextIDShelf.Location = New System.Drawing.Point(259, 74)
+        Me.TextIDShelf.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextIDShelf.Location = New System.Drawing.Point(287, 77)
         Me.TextIDShelf.Name = "TextIDShelf"
         Me.TextIDShelf.ReadOnly = True
-        Me.TextIDShelf.Size = New System.Drawing.Size(223, 22)
+        Me.TextIDShelf.Size = New System.Drawing.Size(223, 32)
         Me.TextIDShelf.TabIndex = 38
         '
         'LabelNama
         '
+        Me.LabelNama.BackColor = System.Drawing.Color.Transparent
+        Me.LabelNama.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelNama.ForeColor = System.Drawing.Color.White
         Me.LabelNama.Location = New System.Drawing.Point(115, 121)
         Me.LabelNama.Name = "LabelNama"
         Me.LabelNama.Size = New System.Drawing.Size(180, 33)
@@ -161,6 +178,9 @@ Partial Class ManageShelf
         '
         'LabelID
         '
+        Me.LabelID.BackColor = System.Drawing.Color.Transparent
+        Me.LabelID.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelID.ForeColor = System.Drawing.Color.White
         Me.LabelID.Location = New System.Drawing.Point(115, 77)
         Me.LabelID.Name = "LabelID"
         Me.LabelID.Size = New System.Drawing.Size(180, 33)
@@ -170,9 +190,12 @@ Partial Class ManageShelf
         'DBstatus
         '
         Me.DBstatus.AutoSize = True
-        Me.DBstatus.Location = New System.Drawing.Point(1225, 33)
+        Me.DBstatus.BackColor = System.Drawing.Color.Transparent
+        Me.DBstatus.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DBstatus.ForeColor = System.Drawing.Color.White
+        Me.DBstatus.Location = New System.Drawing.Point(1069, 26)
         Me.DBstatus.Name = "DBstatus"
-        Me.DBstatus.Size = New System.Drawing.Size(67, 16)
+        Me.DBstatus.Size = New System.Drawing.Size(111, 31)
         Me.DBstatus.TabIndex = 35
         Me.DBstatus.Text = "Database"
         '
@@ -186,17 +209,20 @@ Partial Class ManageShelf
         'LabelPencarian
         '
         Me.LabelPencarian.AutoSize = True
-        Me.LabelPencarian.Location = New System.Drawing.Point(603, 233)
+        Me.LabelPencarian.BackColor = System.Drawing.Color.Transparent
+        Me.LabelPencarian.Font = New System.Drawing.Font("Montserrat", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelPencarian.ForeColor = System.Drawing.Color.White
+        Me.LabelPencarian.Location = New System.Drawing.Point(596, 227)
         Me.LabelPencarian.Name = "LabelPencarian"
-        Me.LabelPencarian.Size = New System.Drawing.Size(62, 16)
+        Me.LabelPencarian.Size = New System.Drawing.Size(100, 31)
         Me.LabelPencarian.TabIndex = 49
         Me.LabelPencarian.Text = "Cari Rak:"
         '
         'ManageShelf
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1414, 571)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.gugli
+        Me.ClientSize = New System.Drawing.Size(1218, 571)
         Me.Controls.Add(Me.LabelPencarian)
         Me.Controls.Add(Me.TextPencarian)
         Me.Controls.Add(Me.KembaliBtn)

@@ -141,19 +141,5 @@ Public Class SetorKas
         End Try
     End Sub
 
-    ' --- Event Handler ---
-    Private Sub LabelSaldoCashDimiliki_Click(sender As Object, e As EventArgs) Handles LabelSaldoCashDimiliki.Click
-        UpdateLabelSaldo()
-    End Sub
-
-    Private Sub LabelSaldoEmoneyDimiliki_Click(sender As Object, e As EventArgs) Handles LabelSaldoEmoneyDimiliki.Click
-        UpdateLabelSaldo()
-    End Sub
-
-    Private Sub NumericNominal_ValueChanged(sender As Object, e As EventArgs) Handles NumericNominal.ValueChanged
-    End Sub
-
-    Private Sub RadioButtonCash_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButtonCash.CheckedChanged
-    End Sub
 
 End Class
